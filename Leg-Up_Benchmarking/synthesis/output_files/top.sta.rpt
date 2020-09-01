@@ -1,0 +1,1168 @@
+TimeQuest Timing Analyzer report for top
+Mon Jun 29 11:05:46 2020
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. SDC File List
+  5. Clocks
+  6. Slow 1200mV 85C Model Fmax Summary
+  7. Timing Closure Recommendations
+  8. Slow 1200mV 85C Model Setup Summary
+  9. Slow 1200mV 85C Model Hold Summary
+ 10. Slow 1200mV 85C Model Recovery Summary
+ 11. Slow 1200mV 85C Model Removal Summary
+ 12. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 13. Slow 1200mV 85C Model Setup: 'clk'
+ 14. Slow 1200mV 85C Model Hold: 'clk'
+ 15. Slow 1200mV 85C Model Metastability Summary
+ 16. Slow 1200mV 0C Model Fmax Summary
+ 17. Slow 1200mV 0C Model Setup Summary
+ 18. Slow 1200mV 0C Model Hold Summary
+ 19. Slow 1200mV 0C Model Recovery Summary
+ 20. Slow 1200mV 0C Model Removal Summary
+ 21. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 22. Slow 1200mV 0C Model Setup: 'clk'
+ 23. Slow 1200mV 0C Model Hold: 'clk'
+ 24. Slow 1200mV 0C Model Metastability Summary
+ 25. Fast 1200mV 0C Model Setup Summary
+ 26. Fast 1200mV 0C Model Hold Summary
+ 27. Fast 1200mV 0C Model Recovery Summary
+ 28. Fast 1200mV 0C Model Removal Summary
+ 29. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 30. Fast 1200mV 0C Model Setup: 'clk'
+ 31. Fast 1200mV 0C Model Hold: 'clk'
+ 32. Fast 1200mV 0C Model Metastability Summary
+ 33. Multicorner Timing Analysis Summary
+ 34. Board Trace Model Assignments
+ 35. Input Transition Times
+ 36. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 37. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 38. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 39. Setup Transfers
+ 40. Hold Transfers
+ 41. Report TCCS
+ 42. Report RSKM
+ 43. Unconstrained Paths Summary
+ 44. Clock Status Summary
+ 45. Unconstrained Input Ports
+ 46. Unconstrained Output Ports
+ 47. Unconstrained Input Ports
+ 48. Unconstrained Output Ports
+ 49. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-----------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                           ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Timing Analyzer       ; TimeQuest                                           ;
+; Revision Name         ; top                                                 ;
+; Device Family         ; Cyclone IV E                                        ;
+; Device Name           ; EP4CE115F29C8                                       ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Combined                                            ;
+; Rise/Fall Delays      ; Enabled                                             ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.22        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   9.0%      ;
+;     Processor 3            ;   3.7%      ;
+;     Processor 4            ;   3.5%      ;
+;     Processors 5-6         ;   2.8%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------+
+; SDC File List                                            ;
++----------------------+--------+--------------------------+
+; SDC File Path        ; Status ; Read at                  ;
++----------------------+--------+--------------------------+
+; CPU_Benchmarking.sdc ; OK     ; Mon Jun 29 11:05:43 2020 ;
++----------------------+--------+--------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                         ;
++------------+------+--------+-----------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+-----------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 15.000 ; 66.67 MHz ; 0.000 ; 7.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+-----------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++-------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary              ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 75.71 MHz ; 75.71 MHz       ; clk        ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++-------+-------+---------------------+
+; Clock ; Slack ; End Point TNS       ;
++-------+-------+---------------------+
+; clk   ; 1.791 ; 0.000               ;
++-------+-------+---------------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 0.442 ; 0.000              ;
++-------+-------+--------------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++-------+-------+-----------------------------------+
+; Clock ; Slack ; End Point TNS                     ;
++-------+-------+-----------------------------------+
+; clk   ; 7.059 ; 0.000                             ;
++-------+-------+-----------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'clk'                                                                                                                                                                     ;
++-------+--------------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                    ; To Node                                                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 1.791 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_145       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[21] ; clk          ; clk         ; 15.000       ; -0.086     ; 13.124     ;
+; 1.815 ; main:main_inst|main_while_body_nextInst_099_reg[4]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.114     ; 13.072     ;
+; 1.962 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_145       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.086     ; 12.953     ;
+; 2.181 ; main:main_inst|main_NodeBlock175_aluB_0_reg[2]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.120     ; 12.700     ;
+; 2.188 ; main:main_inst|main_NodeBlock175_aluB_0_reg[1]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.097     ; 12.716     ;
+; 2.192 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_145       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[20] ; clk          ; clk         ; 15.000       ; -0.096     ; 12.713     ;
+; 2.202 ; main:main_inst|main_while_body_nextInst_099_reg[10]          ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.115     ; 12.684     ;
+; 2.250 ; main:main_inst|main_aluDecode_exit_2_reg[1]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.088     ; 12.663     ;
+; 2.262 ; main:main_inst|main_aluDecode_exit_2_reg[14]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.084     ; 12.655     ;
+; 2.291 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.093     ; 12.617     ;
+; 2.306 ; main:main_inst|main_NodeBlock175_aluB_0_reg[1]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.100     ; 12.595     ;
+; 2.343 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb83_i_147       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[21] ; clk          ; clk         ; 15.000       ; -0.103     ; 12.555     ;
+; 2.345 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.110     ; 12.546     ;
+; 2.373 ; main:main_inst|main_NodeBlock175_aluB_0_reg[3]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.120     ; 12.508     ;
+; 2.392 ; main:main_inst|main_NodeBlock175_aluB_0_reg[0]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[27] ; clk          ; clk         ; 15.000       ; -0.099     ; 12.510     ;
+; 2.394 ; main:main_inst|main_NodeBlock175_aluB_0_reg[9]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.120     ; 12.487     ;
+; 2.424 ; main:main_inst|main_while_body_nextInst_099_reg[4]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.127     ; 12.450     ;
+; 2.427 ; main:main_inst|main_NodeBlock175_aluB_0_reg[5]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.108     ; 12.466     ;
+; 2.436 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.103     ; 12.462     ;
+; 2.440 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb73_i_146       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[21] ; clk          ; clk         ; 15.000       ; -0.103     ; 12.458     ;
+; 2.451 ; main:main_inst|main_NodeBlock175_aluB_0_reg[2]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.117     ; 12.433     ;
+; 2.452 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.094     ; 12.455     ;
+; 2.468 ; main:main_inst|main_NodeBlock175_aluB_0_reg[0]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.097     ; 12.436     ;
+; 2.473 ; main:main_inst|main_NodeBlock175_aluB_0_reg[0]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.100     ; 12.428     ;
+; 2.483 ; main:main_inst|main_aluDecode_exit_2_reg[19]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[27] ; clk          ; clk         ; 15.000       ; -0.086     ; 12.432     ;
+; 2.491 ; main:main_inst|main_NodeBlock175_aluB_0_reg[6]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.108     ; 12.402     ;
+; 2.496 ; main:main_inst|main_aluDecode_exit_2_reg[0]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[3]  ; clk          ; clk         ; 15.000       ; -0.109     ; 12.396     ;
+; 2.514 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb83_i_147       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.103     ; 12.384     ;
+; 2.537 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[24] ; clk          ; clk         ; 15.000       ; -0.097     ; 12.367     ;
+; 2.568 ; main:main_inst|main_aluDecode_exit_2_reg[17]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.093     ; 12.340     ;
+; 2.579 ; main:main_inst|main_aluDecode_exit_2_reg[2]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.088     ; 12.334     ;
+; 2.611 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb73_i_146       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.103     ; 12.287     ;
+; 2.624 ; main:main_inst|main_while_body_nextInst_099_reg[4]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[28] ; clk          ; clk         ; 15.000       ; -0.114     ; 12.263     ;
+; 2.626 ; main:main_inst|main_aluDecode_exit_2_reg[2]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[3]  ; clk          ; clk         ; 15.000       ; -0.109     ; 12.266     ;
+; 2.636 ; main:main_inst|main_while_body_nextInst_099_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.100     ; 12.265     ;
+; 2.642 ; main:main_inst|main_NodeBlock175_aluB_0_reg[2]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.116     ; 12.243     ;
+; 2.666 ; main:main_inst|main_aluDecode_exit_2_reg[0]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.104     ; 12.231     ;
+; 2.681 ; main:main_inst|main_aluDecode_exit_2_reg[1]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[3]  ; clk          ; clk         ; 15.000       ; -0.109     ; 12.211     ;
+; 2.683 ; main:main_inst|main_aluDecode_exit_2_reg[7]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.095     ; 12.223     ;
+; 2.685 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_145       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[22] ; clk          ; clk         ; 15.000       ; -0.096     ; 12.220     ;
+; 2.687 ; main:main_inst|main_aluDecode_exit_2_reg[3]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[3]  ; clk          ; clk         ; 15.000       ; -0.109     ; 12.205     ;
+; 2.700 ; main:main_inst|main_NodeBlock175_aluB_0_reg[4]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.120     ; 12.181     ;
+; 2.700 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_145       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.076     ; 12.225     ;
+; 2.708 ; main:main_inst|main_aluDecode_exit_2_reg[22]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.090     ; 12.203     ;
+; 2.725 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[19] ; clk          ; clk         ; 15.000       ; -0.113     ; 12.163     ;
+; 2.726 ; main:main_inst|main_aluDecode_exit_2_reg[7]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.112     ; 12.163     ;
+; 2.733 ; main:main_inst|main_aluDecode_exit_2_reg[6]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.113     ; 12.155     ;
+; 2.735 ; main:main_inst|main_NodeBlock175_aluB_0_reg[3]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.116     ; 12.150     ;
+; 2.754 ; main:main_inst|main_NodeBlock175_aluB_0_reg[0]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[3]  ; clk          ; clk         ; 15.000       ; -0.118     ; 12.129     ;
+; 2.757 ; main:main_inst|main_while_body_nextInst_099_reg[4]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[9]  ; clk          ; clk         ; 15.000       ; -0.110     ; 12.134     ;
+; 2.760 ; main:main_inst|main_aluDecode_exit_2_reg[6]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.096     ; 12.145     ;
+; 2.790 ; main:main_inst|main_NodeBlock175_aluB_0_reg[2]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.133     ; 12.078     ;
+; 2.791 ; main:main_inst|main_NodeBlock175_aluB_0_reg[0]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[0]  ; clk          ; clk         ; 15.000       ; -0.115     ; 12.095     ;
+; 2.796 ; main:main_inst|main_aluDecode_exit_2_reg[2]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.104     ; 12.101     ;
+; 2.796 ; main:main_inst|main_NodeBlock175_aluB_0_reg[0]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.113     ; 12.092     ;
+; 2.806 ; main:main_inst|main_while_body_nextInst_099_reg[4]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[5]  ; clk          ; clk         ; 15.000       ; -0.130     ; 12.065     ;
+; 2.813 ; main:main_inst|main_aluDecode_exit_2_reg[8]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.096     ; 12.092     ;
+; 2.814 ; main:main_inst|main_aluDecode_exit_2_reg[19]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.093     ; 12.094     ;
+; 2.823 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[13] ; clk          ; clk         ; 15.000       ; -0.070     ; 12.108     ;
+; 2.827 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[3]  ; clk          ; clk         ; 15.000       ; -0.115     ; 12.059     ;
+; 2.832 ; main:main_inst|main_aluDecode_exit_2_reg[19]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[0]  ; clk          ; clk         ; 15.000       ; -0.102     ; 12.067     ;
+; 2.841 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb73_i_146       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[20] ; clk          ; clk         ; 15.000       ; -0.113     ; 12.047     ;
+; 2.841 ; main:main_inst|main_aluDecode_exit_2_reg[14]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[21] ; clk          ; clk         ; 15.000       ; -0.093     ; 12.067     ;
+; 2.841 ; main:main_inst|main_aluDecode_exit_2_reg[3]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.087     ; 12.073     ;
+; 2.846 ; main:main_inst|main_aluDecode_exit_2_reg[3]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.088     ; 12.067     ;
+; 2.851 ; main:main_inst|main_aluDecode_exit_2_reg[5]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.104     ; 12.046     ;
+; 2.851 ; main:main_inst|main_aluDecode_exit_2_reg[1]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.104     ; 12.046     ;
+; 2.852 ; main:main_inst|main_aluDecode_exit_2_reg[7]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[13] ; clk          ; clk         ; 15.000       ; -0.072     ; 12.077     ;
+; 2.854 ; main:main_inst|main_NodeBlock175_aluB_0_reg[1]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[28] ; clk          ; clk         ; 15.000       ; -0.100     ; 12.047     ;
+; 2.857 ; main:main_inst|main_aluDecode_exit_2_reg[17]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[19] ; clk          ; clk         ; 15.000       ; -0.103     ; 12.041     ;
+; 2.857 ; main:main_inst|main_aluDecode_exit_2_reg[3]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.104     ; 12.040     ;
+; 2.860 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb83_i_147       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.093     ; 12.048     ;
+; 2.867 ; main:main_inst|main_NodeBlock175_aluB_0_reg[30]~_Duplicate_1 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.088     ; 12.046     ;
+; 2.895 ; main:main_inst|main_aluDecode_exit_2_reg[4]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.105     ; 12.001     ;
+; 2.900 ; main:main_inst|main_aluDecode_exit_2_reg[10]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.097     ; 12.004     ;
+; 2.909 ; main:main_inst|main_aluDecode_exit_2_reg[23]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.093     ; 11.999     ;
+; 2.915 ; main:main_inst|main_NodeBlock175_aluB_0_reg[1]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.113     ; 11.973     ;
+; 2.926 ; main:main_inst|main_aluDecode_exit_2_reg[1]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.087     ; 11.988     ;
+; 2.927 ; main:main_inst|main_NodeBlock175_aluB_0_reg[3]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[28] ; clk          ; clk         ; 15.000       ; -0.120     ; 11.954     ;
+; 2.929 ; main:main_inst|main_NodeBlock175_aluB_0_reg[11]~_Duplicate_2 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.120     ; 11.952     ;
+; 2.934 ; main:main_inst|main_NodeBlock175_aluB_0_reg[15]~_Duplicate_2 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.108     ; 11.959     ;
+; 2.937 ; main:main_inst|main_while_body_nextInst_099_reg[2]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.114     ; 11.950     ;
+; 2.947 ; main:main_inst|main_aluDecode_exit_2_reg[20]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.093     ; 11.961     ;
+; 2.951 ; main:main_inst|main_aluDecode_exit_2_reg[8]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[27] ; clk          ; clk         ; 15.000       ; -0.099     ; 11.951     ;
+; 2.960 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[12] ; clk          ; clk         ; 15.000       ; -0.081     ; 11.960     ;
+; 2.962 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[11] ; clk          ; clk         ; 15.000       ; -0.081     ; 11.958     ;
+; 2.968 ; main:main_inst|main_NodeBlock175_aluB_0_reg[16]~_Duplicate_2 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.105     ; 11.928     ;
+; 2.980 ; main:main_inst|main_aluDecode_exit_2_reg[3]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[13] ; clk          ; clk         ; 15.000       ; -0.064     ; 11.957     ;
+; 2.982 ; main:main_inst|main_NodeBlock175_aluB_0_reg[3]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.133     ; 11.886     ;
+; 2.985 ; main:main_inst|main_aluDecode_exit_2_reg[17]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[21] ; clk          ; clk         ; 15.000       ; -0.093     ; 11.923     ;
+; 2.987 ; main:main_inst|main_NodeBlock175_aluB_0_reg[5]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[28] ; clk          ; clk         ; 15.000       ; -0.108     ; 11.906     ;
+; 2.990 ; main:main_inst|main_NodeBlock175_aluB_0_reg[2]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[28] ; clk          ; clk         ; 15.000       ; -0.120     ; 11.891     ;
+; 2.994 ; main:main_inst|main_NodeBlock175_aluB_0_reg[8]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.108     ; 11.899     ;
+; 2.996 ; main:main_inst|main_while_body_nextInst_099_reg[5]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.114     ; 11.891     ;
+; 2.996 ; main:main_inst|main_NodeBlock175_aluB_0_reg[9]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[28] ; clk          ; clk         ; 15.000       ; -0.120     ; 11.885     ;
+; 3.004 ; main:main_inst|main_while_body_bit_concat43_reg[0]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.095     ; 11.902     ;
+; 3.006 ; main:main_inst|main_aluDecode_exit_2_reg[6]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[24] ; clk          ; clk         ; 15.000       ; -0.100     ; 11.895     ;
+; 3.011 ; main:main_inst|main_while_body_nextInst_099_reg[10]          ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[28] ; clk          ; clk         ; 15.000       ; -0.115     ; 11.875     ;
+; 3.029 ; main:main_inst|main_NodeBlock175_aluB_0_reg[7]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.108     ; 11.864     ;
+; 3.034 ; main:main_inst|main_aluDecode_exit_2_reg[21]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.096     ; 11.871     ;
++-------+--------------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'clk'                                                                                                                                                                                                                                               ;
++-------+-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                                                       ; To Node                                                                                         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.442 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[0]                                     ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[0]                                     ; clk          ; clk         ; 0.000        ; 0.092      ; 0.746      ;
+; 0.442 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[5]                                      ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[5]                                      ; clk          ; clk         ; 0.000        ; 0.092      ; 0.746      ;
+; 0.443 ; main:main_inst|finish                                                                           ; main:main_inst|finish                                                                           ; clk          ; clk         ; 0.000        ; 0.091      ; 0.746      ;
+; 0.443 ; main:main_inst|main_if_end42_results_sroa_53_6_i15_reg[0]                                       ; main:main_inst|main_if_end42_results_sroa_53_6_i15_reg[0]                                       ; clk          ; clk         ; 0.000        ; 0.091      ; 0.746      ;
+; 0.443 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]                                        ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]                                        ; clk          ; clk         ; 0.000        ; 0.091      ; 0.746      ;
+; 0.443 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[30]                                       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[30]                                       ; clk          ; clk         ; 0.000        ; 0.091      ; 0.746      ;
+; 0.443 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[15]                                       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[15]                                       ; clk          ; clk         ; 0.000        ; 0.091      ; 0.746      ;
+; 0.443 ; main:main_inst|main_aluDecode_exit_results_sroa_31_0250_i4_reg.00000001000000000000000000000000 ; main:main_inst|main_aluDecode_exit_results_sroa_31_0250_i4_reg.00000001000000000000000000000000 ; clk          ; clk         ; 0.000        ; 0.091      ; 0.746      ;
+; 0.443 ; main:main_inst|main_aluDecode_exit_results_sroa_37_0_i6_reg.0000000100000000                    ; main:main_inst|main_aluDecode_exit_results_sroa_37_0_i6_reg.0000000100000000                    ; clk          ; clk         ; 0.000        ; 0.091      ; 0.746      ;
+; 0.443 ; main:main_inst|main_aluDecode_exit_call13_reg[2]                                                ; main:main_inst|main_aluDecode_exit_call13_reg[2]                                                ; clk          ; clk         ; 0.000        ; 0.091      ; 0.746      ;
+; 0.443 ; main:main_inst|main_aluDecode_exit_results_sroa_34_0252_i2_reg.0000000000000001                 ; main:main_inst|main_aluDecode_exit_results_sroa_34_0252_i2_reg.0000000000000001                 ; clk          ; clk         ; 0.000        ; 0.091      ; 0.746      ;
+; 0.443 ; main:main_inst|main_NodeBlock78_results_sroa_26_0_i_reg.100000000                               ; main:main_inst|main_NodeBlock78_results_sroa_26_0_i_reg.100000000                               ; clk          ; clk         ; 0.000        ; 0.091      ; 0.746      ;
+; 0.443 ; main:main_inst|main_sw_default148_i_results_sroa_28_0249_i_reg[16]                              ; main:main_inst|main_sw_default148_i_results_sroa_28_0249_i_reg[16]                              ; clk          ; clk         ; 0.000        ; 0.091      ; 0.746      ;
+; 0.443 ; main:main_inst|main_NodeBlock43_results_sroa_23_0_i_reg                                         ; main:main_inst|main_NodeBlock43_results_sroa_23_0_i_reg                                         ; clk          ; clk         ; 0.000        ; 0.091      ; 0.746      ;
+; 0.443 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[0]                                      ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[0]                                      ; clk          ; clk         ; 0.000        ; 0.091      ; 0.746      ;
+; 0.443 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[11]                                     ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[11]                                     ; clk          ; clk         ; 0.000        ; 0.091      ; 0.746      ;
+; 0.443 ; main:main_inst|cur_state.LEGUP_0                                                                ; main:main_inst|cur_state.LEGUP_0                                                                ; clk          ; clk         ; 0.000        ; 0.091      ; 0.746      ;
+; 0.444 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[0]                                        ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[0]                                        ; clk          ; clk         ; 0.000        ; 0.090      ; 0.746      ;
+; 0.444 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[16]                                       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[16]                                       ; clk          ; clk         ; 0.000        ; 0.090      ; 0.746      ;
+; 0.482 ; main:main_inst|main_if_end61_tobool66_reg                                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_if_then13_i_169                                        ; clk          ; clk         ; 0.000        ; 0.091      ; 0.785      ;
+; 0.482 ; main:main_inst|cur_state.LEGUP_0                                                                ; main:main_inst|cur_state.LEGUP_F_main_BB_while_body_lr_ph_1                                     ; clk          ; clk         ; 0.000        ; 0.091      ; 0.785      ;
+; 0.483 ; main:main_inst|main_while_body_bit_select16_reg                                                 ; main:main_inst|cur_state.LEGUP_F_main_BB_if_else131_i_37                                        ; clk          ; clk         ; 0.000        ; 0.091      ; 0.786      ;
+; 0.483 ; main:main_inst|cur_state.LEGUP_F_main_BB_while_end_176                                          ; main:main_inst|cur_state.LEGUP_0                                                                ; clk          ; clk         ; 0.000        ; 0.091      ; 0.786      ;
+; 0.490 ; main:main_inst|main_sw_default148_i_results_sroa_14_0241245_i_reg[14]                           ; main:main_inst|main_NodeBlock78_results_sroa_14_0241244_i_reg[14]                               ; clk          ; clk         ; 0.000        ; 0.092      ; 0.794      ;
+; 0.490 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[30]                                    ; main:main_inst|main_while_body_nextInst_099_reg[30]                                             ; clk          ; clk         ; 0.000        ; 0.092      ; 0.794      ;
+; 0.490 ; main:main_inst|cur_state.LEGUP_F_main_BB_switch_lookup_i_98                                     ; main:main_inst|cur_state.LEGUP_F_main_BB_switch_lookup_i_99                                     ; clk          ; clk         ; 0.000        ; 0.091      ; 0.793      ;
+; 0.490 ; main:main_inst|main_while_body_i_0_reg[3]                                                       ; main:main_inst|main_while_body_i_indvar_reg[3]                                                  ; clk          ; clk         ; 0.000        ; 0.091      ; 0.793      ;
+; 0.490 ; main:main_inst|main_while_body_i_0_reg[1]                                                       ; main:main_inst|main_while_body_i_indvar_reg[1]                                                  ; clk          ; clk         ; 0.000        ; 0.091      ; 0.793      ;
+; 0.491 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[16]                                    ; main:main_inst|main_while_body_nextInst_099_reg[16]                                             ; clk          ; clk         ; 0.000        ; 0.092      ; 0.795      ;
+; 0.491 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[31]                                    ; main:main_inst|main_while_body_nextInst_099_reg[31]                                             ; clk          ; clk         ; 0.000        ; 0.091      ; 0.794      ;
+; 0.491 ; main:main_inst|cur_state.LEGUP_F_main_BB_switch_lookup54_i_100                                  ; main:main_inst|cur_state.LEGUP_F_main_BB_switch_lookup54_i_101                                  ; clk          ; clk         ; 0.000        ; 0.091      ; 0.794      ;
+; 0.491 ; main:main_inst|main_while_body_i_0_reg[2]                                                       ; main:main_inst|main_while_body_i_indvar_reg[2]                                                  ; clk          ; clk         ; 0.000        ; 0.091      ; 0.794      ;
+; 0.492 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[18]                                    ; main:main_inst|main_while_body_nextInst_099_reg[18]                                             ; clk          ; clk         ; 0.000        ; 0.091      ; 0.795      ;
+; 0.492 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[10]                                    ; main:main_inst|main_while_body_nextInst_099_reg[10]                                             ; clk          ; clk         ; 0.000        ; 0.091      ; 0.795      ;
+; 0.492 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[12]                                    ; main:main_inst|main_while_body_nextInst_099_reg[12]                                             ; clk          ; clk         ; 0.000        ; 0.091      ; 0.795      ;
+; 0.492 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[21]                                    ; main:main_inst|main_while_body_nextInst_099_reg[21]                                             ; clk          ; clk         ; 0.000        ; 0.091      ; 0.795      ;
+; 0.492 ; main:main_inst|cur_state.LEGUP_F_main_BB_if_then56_164                                          ; main:main_inst|cur_state.LEGUP_F_main_BB_if_end61_165                                           ; clk          ; clk         ; 0.000        ; 0.091      ; 0.795      ;
+; 0.492 ; main:main_inst|main_while_body_i_0_reg[0]                                                       ; main:main_inst|main_while_body_i_indvar_reg[0]                                                  ; clk          ; clk         ; 0.000        ; 0.091      ; 0.795      ;
+; 0.492 ; main:main_inst|main_while_body_i_0_reg[5]                                                       ; main:main_inst|main_while_body_i_indvar_reg[5]                                                  ; clk          ; clk         ; 0.000        ; 0.091      ; 0.795      ;
+; 0.493 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[19]                                    ; main:main_inst|main_while_body_nextInst_099_reg[19]                                             ; clk          ; clk         ; 0.000        ; 0.091      ; 0.796      ;
+; 0.493 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[22]                                    ; main:main_inst|main_while_body_nextInst_099_reg[22]                                             ; clk          ; clk         ; 0.000        ; 0.091      ; 0.796      ;
+; 0.493 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_144                                          ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_145                                          ; clk          ; clk         ; 0.000        ; 0.090      ; 0.795      ;
+; 0.494 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[25]                                    ; main:main_inst|main_while_body_nextInst_099_reg[25]                                             ; clk          ; clk         ; 0.000        ; 0.091      ; 0.797      ;
+; 0.497 ; main:main_inst|cur_state.LEGUP_F_main_BB_if_else18_i_171                                        ; main:main_inst|cur_state.LEGUP_F_main_BB_addressCalculator_exit_172                             ; clk          ; clk         ; 0.000        ; 0.091      ; 0.800      ;
+; 0.497 ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock60_63                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock89_71                                         ; clk          ; clk         ; 0.000        ; 0.091      ; 0.800      ;
+; 0.497 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_default148_i_53                                     ; main:main_inst|main_NodeBlock78_results_sroa_26_0_i_reg.100000000                               ; clk          ; clk         ; 0.000        ; 0.091      ; 0.800      ;
+; 0.499 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock24_38                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock22_39                                         ; clk          ; clk         ; 0.000        ; 0.091      ; 0.802      ;
+; 0.499 ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock5_20                                          ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb_i_25                                             ; clk          ; clk         ; 0.000        ; 0.091      ; 0.802      ;
+; 0.499 ; main:main_inst|main_while_body_bit_select16_reg                                                 ; main:main_inst|cur_state.LEGUP_F_main_BB_if_then126_i_36                                        ; clk          ; clk         ; 0.000        ; 0.091      ; 0.802      ;
+; 0.499 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock127_130                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb1_i_132                                           ; clk          ; clk         ; 0.000        ; 0.091      ; 0.802      ;
+; 0.499 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock155_116                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb73_i_146                                          ; clk          ; clk         ; 0.000        ; 0.091      ; 0.802      ;
+; 0.499 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock155_116                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock153_117                                       ; clk          ; clk         ; 0.000        ; 0.091      ; 0.802      ;
+; 0.499 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock96_76                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock92_78                                         ; clk          ; clk         ; 0.000        ; 0.091      ; 0.802      ;
+; 0.499 ; main:main_inst|main_if_end61_tobool66_reg                                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_if_else15_i_170                                        ; clk          ; clk         ; 0.000        ; 0.091      ; 0.802      ;
+; 0.499 ; main:main_inst|cur_state.LEGUP_0                                                                ; main:main_inst|finish                                                                           ; clk          ; clk         ; 0.000        ; 0.091      ; 0.802      ;
+; 0.500 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock56_65                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock52_67                                         ; clk          ; clk         ; 0.000        ; 0.090      ; 0.802      ;
+; 0.500 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock127_130                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb5_i_133                                           ; clk          ; clk         ; 0.000        ; 0.091      ; 0.803      ;
+; 0.500 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock143_122                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock141_123                                       ; clk          ; clk         ; 0.000        ; 0.090      ; 0.802      ;
+; 0.500 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock143_122                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb42_i_140                                          ; clk          ; clk         ; 0.000        ; 0.090      ; 0.802      ;
+; 0.500 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock161_113                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock159_114                                       ; clk          ; clk         ; 0.000        ; 0.090      ; 0.802      ;
+; 0.500 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock163_112                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock161_113                                       ; clk          ; clk         ; 0.000        ; 0.090      ; 0.802      ;
+; 0.500 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock175_106                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock173_107                                       ; clk          ; clk         ; 0.000        ; 0.090      ; 0.802      ;
+; 0.500 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock105_87                                        ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock101_89                                        ; clk          ; clk         ; 0.000        ; 0.091      ; 0.803      ;
+; 0.500 ; main:main_inst|cur_state.LEGUP_F_main_BB_if_then44_i_29                                         ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[0]                                      ; clk          ; clk         ; 0.000        ; 0.091      ; 0.803      ;
+; 0.501 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock56_65                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock54_66                                         ; clk          ; clk         ; 0.000        ; 0.090      ; 0.803      ;
+; 0.501 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock50_68                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock48_69                                         ; clk          ; clk         ; 0.000        ; 0.090      ; 0.803      ;
+; 0.501 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock50_68                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock46_70                                         ; clk          ; clk         ; 0.000        ; 0.090      ; 0.803      ;
+; 0.501 ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock48_69                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock115_81                                        ; clk          ; clk         ; 0.000        ; 0.090      ; 0.803      ;
+; 0.501 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock153_117                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_alu_exit_154                                           ; clk          ; clk         ; 0.000        ; 0.091      ; 0.804      ;
+; 0.501 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock153_117                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb83_i_147                                          ; clk          ; clk         ; 0.000        ; 0.091      ; 0.804      ;
+; 0.501 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock161_113                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb106_i_150                                         ; clk          ; clk         ; 0.000        ; 0.090      ; 0.803      ;
+; 0.501 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock175_106                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock147_120                                       ; clk          ; clk         ; 0.000        ; 0.090      ; 0.803      ;
+; 0.501 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock105_87                                        ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock103_88                                        ; clk          ; clk         ; 0.000        ; 0.091      ; 0.804      ;
+; 0.502 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock163_112                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb88_i_148                                          ; clk          ; clk         ; 0.000        ; 0.090      ; 0.804      ;
+; 0.503 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock96_76                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock94_77                                         ; clk          ; clk         ; 0.000        ; 0.091      ; 0.806      ;
+; 0.504 ; main:main_inst|main_while_body_1_reg[5]                                                         ; main:main_inst|main_while_body_Pivot14_reg                                                      ; clk          ; clk         ; 0.000        ; 0.092      ; 0.808      ;
+; 0.506 ; main:main_inst|main_while_body_i_indvar_reg[3]                                                  ; main:main_inst|main_while_body_i_0_reg[3]                                                       ; clk          ; clk         ; 0.000        ; 0.091      ; 0.809      ;
+; 0.509 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock78_54                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock58_64                                         ; clk          ; clk         ; 0.000        ; 0.091      ; 0.812      ;
+; 0.510 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock78_54                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock76_55                                         ; clk          ; clk         ; 0.000        ; 0.091      ; 0.813      ;
+; 0.515 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[14]                                     ; main:main_inst|main_sw_default142_i_results_sroa_14_0243_i_reg[14]                              ; clk          ; clk         ; 0.000        ; 0.091      ; 0.818      ;
+; 0.515 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[30]                                     ; main:main_inst|main_sw_default142_i_results_sroa_14_0243_i_reg[30]                              ; clk          ; clk         ; 0.000        ; 0.092      ; 0.819      ;
+; 0.516 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[2]                                      ; main:main_inst|main_sw_default142_i_results_sroa_14_0243_i_reg[2]                               ; clk          ; clk         ; 0.000        ; 0.092      ; 0.820      ;
+; 0.516 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[13]                                     ; main:main_inst|main_sw_default142_i_results_sroa_14_0243_i_reg[13]                              ; clk          ; clk         ; 0.000        ; 0.091      ; 0.819      ;
+; 0.516 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock113_82                                        ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock107_86                                        ; clk          ; clk         ; 0.000        ; 0.091      ; 0.819      ;
+; 0.516 ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_10                                 ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_11                                 ; clk          ; clk         ; 0.000        ; 0.092      ; 0.820      ;
+; 0.517 ; main:main_inst|main_aluDecode_exit_tobool_reg                                                   ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock175_106                                       ; clk          ; clk         ; 0.000        ; 0.090      ; 0.819      ;
+; 0.517 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock101_89                                        ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock99_90                                         ; clk          ; clk         ; 0.000        ; 0.091      ; 0.820      ;
+; 0.518 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[17]                                     ; main:main_inst|main_sw_default142_i_results_sroa_14_0243_i_reg[17]                              ; clk          ; clk         ; 0.000        ; 0.091      ; 0.821      ;
+; 0.518 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[16]                                     ; main:main_inst|main_sw_default142_i_results_sroa_14_0243_i_reg[16]                              ; clk          ; clk         ; 0.000        ; 0.091      ; 0.821      ;
+; 0.518 ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_6                                  ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_7                                  ; clk          ; clk         ; 0.000        ; 0.091      ; 0.821      ;
+; 0.519 ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_5                                  ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_6                                  ; clk          ; clk         ; 0.000        ; 0.091      ; 0.822      ;
+; 0.520 ; main:main_inst|cur_state.LEGUP_F_main_BB_while_body_i_2                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_while_body_i_3                                         ; clk          ; clk         ; 0.000        ; 0.091      ; 0.823      ;
+; 0.522 ; main:main_inst|main_while_body_shr6_i_reg[5]                                                    ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock118_94                                        ; clk          ; clk         ; 0.000        ; 0.092      ; 0.826      ;
+; 0.522 ; main:main_inst|main_while_body_shr6_i_reg[5]                                                    ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock83_74                                         ; clk          ; clk         ; 0.000        ; 0.092      ; 0.826      ;
+; 0.522 ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_11                                 ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_12                                 ; clk          ; clk         ; 0.000        ; 0.092      ; 0.826      ;
+; 0.526 ; main:main_inst|cur_state.LEGUP_F_main_BB_while_body_lr_ph_1                                     ; main:main_inst|cur_state.LEGUP_F_main_BB_while_body_i_2                                         ; clk          ; clk         ; 0.000        ; 0.091      ; 0.829      ;
+; 0.533 ; main:main_inst|main_aluDecode_exit_tobool_reg                                                   ; main:main_inst|cur_state.LEGUP_F_main_BB_if_else_104                                            ; clk          ; clk         ; 0.000        ; 0.090      ; 0.835      ;
+; 0.539 ; main:main_inst|main_while_body_shr6_i_reg[5]                                                    ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock120_93                                        ; clk          ; clk         ; 0.000        ; 0.092      ; 0.843      ;
+; 0.540 ; main:main_inst|main_while_body_shr6_i_reg[5]                                                    ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock85_73                                         ; clk          ; clk         ; 0.000        ; 0.092      ; 0.844      ;
+; 0.547 ; main:main_inst|main_while_body_1_reg[14]                                                        ; main:main_inst|main_while_body_bit_select28_reg[2]                                              ; clk          ; clk         ; 0.000        ; 0.092      ; 0.851      ;
++-------+-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+-----------------------------------------------
+; Slow 1200mV 85C Model Metastability Summary ;
+-----------------------------------------------
+No synchronizer chains to report.
+
+
++-------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary               ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 80.31 MHz ; 80.31 MHz       ; clk        ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 2.548 ; 0.000              ;
++-------+-------+--------------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.391 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+-------+----------------------------------+
+; Clock ; Slack ; End Point TNS                    ;
++-------+-------+----------------------------------+
+; clk   ; 7.088 ; 0.000                            ;
++-------+-------+----------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'clk'                                                                                                                                                                      ;
++-------+--------------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                    ; To Node                                                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 2.548 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_145       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[21] ; clk          ; clk         ; 15.000       ; -0.078     ; 12.376     ;
+; 2.595 ; main:main_inst|main_while_body_nextInst_099_reg[4]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.104     ; 12.303     ;
+; 2.678 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_145       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.078     ; 12.246     ;
+; 2.830 ; main:main_inst|main_aluDecode_exit_2_reg[14]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.077     ; 12.095     ;
+; 2.848 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_145       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[20] ; clk          ; clk         ; 15.000       ; -0.090     ; 12.064     ;
+; 2.866 ; main:main_inst|main_aluDecode_exit_2_reg[1]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.080     ; 12.056     ;
+; 2.891 ; main:main_inst|main_NodeBlock175_aluB_0_reg[1]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.088     ; 12.023     ;
+; 2.910 ; main:main_inst|main_while_body_nextInst_099_reg[10]          ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.105     ; 11.987     ;
+; 2.925 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.077     ; 12.000     ;
+; 2.929 ; main:main_inst|main_NodeBlock175_aluB_0_reg[0]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[27] ; clk          ; clk         ; 15.000       ; -0.087     ; 11.986     ;
+; 2.961 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.102     ; 11.939     ;
+; 2.966 ; main:main_inst|main_NodeBlock175_aluB_0_reg[2]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.108     ; 11.928     ;
+; 2.979 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb83_i_147       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[21] ; clk          ; clk         ; 15.000       ; -0.097     ; 11.926     ;
+; 2.985 ; main:main_inst|main_aluDecode_exit_2_reg[19]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[27] ; clk          ; clk         ; 15.000       ; -0.077     ; 11.940     ;
+; 3.007 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.094     ; 11.901     ;
+; 3.008 ; main:main_inst|main_aluDecode_exit_2_reg[0]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[3]  ; clk          ; clk         ; 15.000       ; -0.100     ; 11.894     ;
+; 3.019 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.084     ; 11.899     ;
+; 3.069 ; main:main_inst|main_NodeBlock175_aluB_0_reg[0]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.088     ; 11.845     ;
+; 3.074 ; main:main_inst|main_NodeBlock175_aluB_0_reg[1]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.088     ; 11.840     ;
+; 3.105 ; main:main_inst|main_while_body_nextInst_099_reg[4]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.122     ; 11.775     ;
+; 3.107 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb83_i_147       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.097     ; 11.798     ;
+; 3.116 ; main:main_inst|main_NodeBlock175_aluB_0_reg[9]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.108     ; 11.778     ;
+; 3.119 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb73_i_146       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[21] ; clk          ; clk         ; 15.000       ; -0.097     ; 11.786     ;
+; 3.130 ; main:main_inst|main_aluDecode_exit_2_reg[17]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.088     ; 11.784     ;
+; 3.143 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[24] ; clk          ; clk         ; 15.000       ; -0.084     ; 11.775     ;
+; 3.143 ; main:main_inst|main_aluDecode_exit_2_reg[2]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[3]  ; clk          ; clk         ; 15.000       ; -0.100     ; 11.759     ;
+; 3.148 ; main:main_inst|main_NodeBlock175_aluB_0_reg[3]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.108     ; 11.746     ;
+; 3.167 ; main:main_inst|main_NodeBlock175_aluB_0_reg[5]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.101     ; 11.734     ;
+; 3.169 ; main:main_inst|main_aluDecode_exit_2_reg[2]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.080     ; 11.753     ;
+; 3.193 ; main:main_inst|main_aluDecode_exit_2_reg[1]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[3]  ; clk          ; clk         ; 15.000       ; -0.100     ; 11.709     ;
+; 3.198 ; main:main_inst|main_aluDecode_exit_2_reg[3]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[3]  ; clk          ; clk         ; 15.000       ; -0.100     ; 11.704     ;
+; 3.219 ; main:main_inst|main_NodeBlock175_aluB_0_reg[2]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.108     ; 11.675     ;
+; 3.230 ; main:main_inst|main_aluDecode_exit_2_reg[0]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.098     ; 11.674     ;
+; 3.242 ; main:main_inst|main_NodeBlock175_aluB_0_reg[6]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.101     ; 11.659     ;
+; 3.249 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb73_i_146       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.097     ; 11.656     ;
+; 3.255 ; main:main_inst|main_aluDecode_exit_2_reg[22]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.085     ; 11.662     ;
+; 3.262 ; main:main_inst|main_NodeBlock175_aluB_0_reg[0]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[3]  ; clk          ; clk         ; 15.000       ; -0.108     ; 11.632     ;
+; 3.262 ; main:main_inst|main_NodeBlock175_aluB_0_reg[0]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.088     ; 11.652     ;
+; 3.273 ; main:main_inst|main_aluDecode_exit_2_reg[7]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.104     ; 11.625     ;
+; 3.282 ; main:main_inst|main_aluDecode_exit_2_reg[6]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.106     ; 11.614     ;
+; 3.300 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[19] ; clk          ; clk         ; 15.000       ; -0.106     ; 11.596     ;
+; 3.342 ; main:main_inst|main_aluDecode_exit_2_reg[7]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.079     ; 11.581     ;
+; 3.342 ; main:main_inst|main_NodeBlock175_aluB_0_reg[2]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.101     ; 11.559     ;
+; 3.358 ; main:main_inst|main_aluDecode_exit_2_reg[19]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.088     ; 11.556     ;
+; 3.360 ; main:main_inst|main_NodeBlock175_aluB_0_reg[0]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[0]  ; clk          ; clk         ; 15.000       ; -0.104     ; 11.538     ;
+; 3.364 ; main:main_inst|main_while_body_nextInst_099_reg[4]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[28] ; clk          ; clk         ; 15.000       ; -0.104     ; 11.534     ;
+; 3.365 ; main:main_inst|main_aluDecode_exit_2_reg[2]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.098     ; 11.539     ;
+; 3.369 ; main:main_inst|main_aluDecode_exit_2_reg[19]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[0]  ; clk          ; clk         ; 15.000       ; -0.094     ; 11.539     ;
+; 3.374 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_145       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.061     ; 11.567     ;
+; 3.375 ; main:main_inst|main_aluDecode_exit_2_reg[7]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[13] ; clk          ; clk         ; 15.000       ; -0.061     ; 11.566     ;
+; 3.376 ; main:main_inst|main_aluDecode_exit_2_reg[6]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.081     ; 11.545     ;
+; 3.388 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[3]  ; clk          ; clk         ; 15.000       ; -0.104     ; 11.510     ;
+; 3.390 ; main:main_inst|main_NodeBlock175_aluB_0_reg[0]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.106     ; 11.506     ;
+; 3.392 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_145       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[22] ; clk          ; clk         ; 15.000       ; -0.090     ; 11.520     ;
+; 3.405 ; main:main_inst|main_while_body_nextInst_099_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.091     ; 11.506     ;
+; 3.413 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[13] ; clk          ; clk         ; 15.000       ; -0.059     ; 11.530     ;
+; 3.415 ; main:main_inst|main_aluDecode_exit_2_reg[1]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.098     ; 11.489     ;
+; 3.419 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb73_i_146       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[20] ; clk          ; clk         ; 15.000       ; -0.109     ; 11.474     ;
+; 3.420 ; main:main_inst|main_aluDecode_exit_2_reg[3]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.098     ; 11.484     ;
+; 3.423 ; main:main_inst|main_aluDecode_exit_2_reg[17]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[19] ; clk          ; clk         ; 15.000       ; -0.100     ; 11.479     ;
+; 3.426 ; main:main_inst|main_while_body_nextInst_099_reg[4]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[9]  ; clk          ; clk         ; 15.000       ; -0.097     ; 11.479     ;
+; 3.430 ; main:main_inst|main_aluDecode_exit_2_reg[8]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.081     ; 11.491     ;
+; 3.433 ; main:main_inst|main_NodeBlock175_aluB_0_reg[3]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.101     ; 11.468     ;
+; 3.436 ; main:main_inst|main_aluDecode_exit_2_reg[5]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.098     ; 11.468     ;
+; 3.441 ; main:main_inst|main_aluDecode_exit_2_reg[3]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.080     ; 11.481     ;
+; 3.442 ; main:main_inst|main_aluDecode_exit_2_reg[23]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.088     ; 11.472     ;
+; 3.448 ; main:main_inst|main_aluDecode_exit_2_reg[4]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.097     ; 11.457     ;
+; 3.449 ; main:main_inst|main_aluDecode_exit_2_reg[3]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.073     ; 11.480     ;
+; 3.460 ; main:main_inst|main_NodeBlock175_aluB_0_reg[4]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.108     ; 11.434     ;
+; 3.461 ; main:main_inst|main_aluDecode_exit_2_reg[8]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[27] ; clk          ; clk         ; 15.000       ; -0.087     ; 11.454     ;
+; 3.470 ; main:main_inst|main_aluDecode_exit_2_reg[14]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[21] ; clk          ; clk         ; 15.000       ; -0.087     ; 11.445     ;
+; 3.476 ; main:main_inst|main_NodeBlock175_aluB_0_reg[2]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.126     ; 11.400     ;
+; 3.477 ; main:main_inst|main_aluDecode_exit_2_reg[20]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.088     ; 11.437     ;
+; 3.492 ; main:main_inst|main_while_body_nextInst_099_reg[4]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[5]  ; clk          ; clk         ; 15.000       ; -0.122     ; 11.388     ;
+; 3.502 ; main:main_inst|main_aluDecode_exit_2_reg[10]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.088     ; 11.412     ;
+; 3.531 ; main:main_inst|main_aluDecode_exit_2_reg[1]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.073     ; 11.398     ;
+; 3.537 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[12] ; clk          ; clk         ; 15.000       ; -0.072     ; 11.393     ;
+; 3.546 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb83_i_147       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.080     ; 11.376     ;
+; 3.548 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[11] ; clk          ; clk         ; 15.000       ; -0.072     ; 11.382     ;
+; 3.561 ; main:main_inst|main_aluDecode_exit_2_reg[21]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.087     ; 11.354     ;
+; 3.564 ; main:main_inst|main_aluDecode_exit_2_reg[18]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[27] ; clk          ; clk         ; 15.000       ; -0.077     ; 11.361     ;
+; 3.571 ; main:main_inst|main_aluDecode_exit_2_reg[21]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[27] ; clk          ; clk         ; 15.000       ; -0.076     ; 11.355     ;
+; 3.572 ; main:main_inst|main_aluDecode_exit_2_reg[3]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[13] ; clk          ; clk         ; 15.000       ; -0.055     ; 11.375     ;
+; 3.580 ; main:main_inst|main_aluDecode_exit_2_reg[17]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[21] ; clk          ; clk         ; 15.000       ; -0.088     ; 11.334     ;
+; 3.584 ; main:main_inst|main_NodeBlock175_aluB_0_reg[1]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.106     ; 11.312     ;
+; 3.592 ; main:main_inst|main_NodeBlock175_aluB_0_reg[15]~_Duplicate_2 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.101     ; 11.309     ;
+; 3.594 ; main:main_inst|main_aluDecode_exit_2_reg[6]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[24] ; clk          ; clk         ; 15.000       ; -0.088     ; 11.320     ;
+; 3.600 ; main:main_inst|main_while_body_bit_concat43_reg[0]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.079     ; 11.323     ;
+; 3.601 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[26] ; clk          ; clk         ; 15.000       ; -0.083     ; 11.318     ;
+; 3.624 ; main:main_inst|main_NodeBlock175_aluB_0_reg[11]~_Duplicate_2 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.108     ; 11.270     ;
+; 3.648 ; main:main_inst|main_aluDecode_exit_2_reg[8]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[24] ; clk          ; clk         ; 15.000       ; -0.088     ; 11.266     ;
+; 3.651 ; main:main_inst|main_aluDecode_exit_2_reg[19]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[19] ; clk          ; clk         ; 15.000       ; -0.100     ; 11.251     ;
+; 3.658 ; main:main_inst|main_NodeBlock175_aluB_0_reg[3]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.126     ; 11.218     ;
+; 3.660 ; main:main_inst|main_alu_exit_add79_i_reg[23]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.101     ; 11.241     ;
+; 3.667 ; main:main_inst|main_NodeBlock175_aluB_0_reg[24]~_Duplicate_1 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.103     ; 11.232     ;
+; 3.667 ; main:main_inst|main_aluDecode_exit_2_reg[3]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[24] ; clk          ; clk         ; 15.000       ; -0.080     ; 11.255     ;
+; 3.668 ; main:main_inst|main_aluDecode_exit_2_reg[20]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[27] ; clk          ; clk         ; 15.000       ; -0.077     ; 11.257     ;
+; 3.671 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[21] ; clk          ; clk         ; 15.000       ; -0.094     ; 11.237     ;
+; 3.677 ; main:main_inst|main_NodeBlock175_aluB_0_reg[5]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.119     ; 11.206     ;
+; 3.679 ; main:main_inst|main_while_body_nextInst_099_reg[10]          ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[28] ; clk          ; clk         ; 15.000       ; -0.105     ; 11.218     ;
++-------+--------------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'clk'                                                                                                                                                                                                                                                ;
++-------+-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                                                       ; To Node                                                                                         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.391 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[5]                                      ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[5]                                      ; clk          ; clk         ; 0.000        ; 0.083      ; 0.669      ;
+; 0.392 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[0]                                     ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[0]                                     ; clk          ; clk         ; 0.000        ; 0.082      ; 0.669      ;
+; 0.392 ; main:main_inst|main_if_end42_results_sroa_53_6_i15_reg[0]                                       ; main:main_inst|main_if_end42_results_sroa_53_6_i15_reg[0]                                       ; clk          ; clk         ; 0.000        ; 0.082      ; 0.669      ;
+; 0.392 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]                                        ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]                                        ; clk          ; clk         ; 0.000        ; 0.082      ; 0.669      ;
+; 0.392 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[30]                                       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[30]                                       ; clk          ; clk         ; 0.000        ; 0.082      ; 0.669      ;
+; 0.392 ; main:main_inst|main_aluDecode_exit_results_sroa_31_0250_i4_reg.00000001000000000000000000000000 ; main:main_inst|main_aluDecode_exit_results_sroa_31_0250_i4_reg.00000001000000000000000000000000 ; clk          ; clk         ; 0.000        ; 0.082      ; 0.669      ;
+; 0.392 ; main:main_inst|main_aluDecode_exit_results_sroa_37_0_i6_reg.0000000100000000                    ; main:main_inst|main_aluDecode_exit_results_sroa_37_0_i6_reg.0000000100000000                    ; clk          ; clk         ; 0.000        ; 0.082      ; 0.669      ;
+; 0.392 ; main:main_inst|main_aluDecode_exit_call13_reg[2]                                                ; main:main_inst|main_aluDecode_exit_call13_reg[2]                                                ; clk          ; clk         ; 0.000        ; 0.082      ; 0.669      ;
+; 0.392 ; main:main_inst|main_aluDecode_exit_results_sroa_34_0252_i2_reg.0000000000000001                 ; main:main_inst|main_aluDecode_exit_results_sroa_34_0252_i2_reg.0000000000000001                 ; clk          ; clk         ; 0.000        ; 0.082      ; 0.669      ;
+; 0.392 ; main:main_inst|main_NodeBlock78_results_sroa_26_0_i_reg.100000000                               ; main:main_inst|main_NodeBlock78_results_sroa_26_0_i_reg.100000000                               ; clk          ; clk         ; 0.000        ; 0.082      ; 0.669      ;
+; 0.392 ; main:main_inst|main_sw_default148_i_results_sroa_28_0249_i_reg[16]                              ; main:main_inst|main_sw_default148_i_results_sroa_28_0249_i_reg[16]                              ; clk          ; clk         ; 0.000        ; 0.082      ; 0.669      ;
+; 0.392 ; main:main_inst|main_NodeBlock43_results_sroa_23_0_i_reg                                         ; main:main_inst|main_NodeBlock43_results_sroa_23_0_i_reg                                         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.669      ;
+; 0.392 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[0]                                      ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[0]                                      ; clk          ; clk         ; 0.000        ; 0.082      ; 0.669      ;
+; 0.392 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[11]                                     ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[11]                                     ; clk          ; clk         ; 0.000        ; 0.082      ; 0.669      ;
+; 0.393 ; main:main_inst|finish                                                                           ; main:main_inst|finish                                                                           ; clk          ; clk         ; 0.000        ; 0.081      ; 0.669      ;
+; 0.393 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[0]                                        ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[0]                                        ; clk          ; clk         ; 0.000        ; 0.081      ; 0.669      ;
+; 0.393 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[16]                                       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[16]                                       ; clk          ; clk         ; 0.000        ; 0.081      ; 0.669      ;
+; 0.393 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[15]                                       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[15]                                       ; clk          ; clk         ; 0.000        ; 0.081      ; 0.669      ;
+; 0.393 ; main:main_inst|cur_state.LEGUP_0                                                                ; main:main_inst|cur_state.LEGUP_0                                                                ; clk          ; clk         ; 0.000        ; 0.081      ; 0.669      ;
+; 0.446 ; main:main_inst|main_while_body_bit_select16_reg                                                 ; main:main_inst|cur_state.LEGUP_F_main_BB_if_else131_i_37                                        ; clk          ; clk         ; 0.000        ; 0.083      ; 0.724      ;
+; 0.446 ; main:main_inst|main_if_end61_tobool66_reg                                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_if_then13_i_169                                        ; clk          ; clk         ; 0.000        ; 0.082      ; 0.723      ;
+; 0.447 ; main:main_inst|cur_state.LEGUP_0                                                                ; main:main_inst|cur_state.LEGUP_F_main_BB_while_body_lr_ph_1                                     ; clk          ; clk         ; 0.000        ; 0.081      ; 0.723      ;
+; 0.450 ; main:main_inst|cur_state.LEGUP_F_main_BB_while_end_176                                          ; main:main_inst|cur_state.LEGUP_0                                                                ; clk          ; clk         ; 0.000        ; 0.081      ; 0.726      ;
+; 0.460 ; main:main_inst|main_while_body_i_0_reg[3]                                                       ; main:main_inst|main_while_body_i_indvar_reg[3]                                                  ; clk          ; clk         ; 0.000        ; 0.082      ; 0.737      ;
+; 0.460 ; main:main_inst|main_while_body_i_0_reg[1]                                                       ; main:main_inst|main_while_body_i_indvar_reg[1]                                                  ; clk          ; clk         ; 0.000        ; 0.082      ; 0.737      ;
+; 0.461 ; main:main_inst|main_sw_default148_i_results_sroa_14_0241245_i_reg[14]                           ; main:main_inst|main_NodeBlock78_results_sroa_14_0241244_i_reg[14]                               ; clk          ; clk         ; 0.000        ; 0.082      ; 0.738      ;
+; 0.461 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[12]                                    ; main:main_inst|main_while_body_nextInst_099_reg[12]                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.738      ;
+; 0.461 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[30]                                    ; main:main_inst|main_while_body_nextInst_099_reg[30]                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.738      ;
+; 0.461 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[31]                                    ; main:main_inst|main_while_body_nextInst_099_reg[31]                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.738      ;
+; 0.461 ; main:main_inst|cur_state.LEGUP_F_main_BB_if_then56_164                                          ; main:main_inst|cur_state.LEGUP_F_main_BB_if_end61_165                                           ; clk          ; clk         ; 0.000        ; 0.082      ; 0.738      ;
+; 0.461 ; main:main_inst|cur_state.LEGUP_F_main_BB_switch_lookup_i_98                                     ; main:main_inst|cur_state.LEGUP_F_main_BB_switch_lookup_i_99                                     ; clk          ; clk         ; 0.000        ; 0.081      ; 0.737      ;
+; 0.461 ; main:main_inst|main_while_body_i_0_reg[2]                                                       ; main:main_inst|main_while_body_i_indvar_reg[2]                                                  ; clk          ; clk         ; 0.000        ; 0.082      ; 0.738      ;
+; 0.461 ; main:main_inst|main_while_body_i_0_reg[0]                                                       ; main:main_inst|main_while_body_i_indvar_reg[0]                                                  ; clk          ; clk         ; 0.000        ; 0.082      ; 0.738      ;
+; 0.461 ; main:main_inst|cur_state.LEGUP_F_main_BB_if_then44_i_29                                         ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[0]                                      ; clk          ; clk         ; 0.000        ; 0.082      ; 0.738      ;
+; 0.462 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[18]                                    ; main:main_inst|main_while_body_nextInst_099_reg[18]                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.739      ;
+; 0.462 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[10]                                    ; main:main_inst|main_while_body_nextInst_099_reg[10]                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.739      ;
+; 0.462 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[16]                                    ; main:main_inst|main_while_body_nextInst_099_reg[16]                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.739      ;
+; 0.462 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[19]                                    ; main:main_inst|main_while_body_nextInst_099_reg[19]                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.739      ;
+; 0.462 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[21]                                    ; main:main_inst|main_while_body_nextInst_099_reg[21]                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.739      ;
+; 0.462 ; main:main_inst|cur_state.LEGUP_F_main_BB_switch_lookup54_i_100                                  ; main:main_inst|cur_state.LEGUP_F_main_BB_switch_lookup54_i_101                                  ; clk          ; clk         ; 0.000        ; 0.081      ; 0.738      ;
+; 0.462 ; main:main_inst|main_while_body_i_0_reg[5]                                                       ; main:main_inst|main_while_body_i_indvar_reg[5]                                                  ; clk          ; clk         ; 0.000        ; 0.082      ; 0.739      ;
+; 0.462 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_default148_i_53                                     ; main:main_inst|main_NodeBlock78_results_sroa_26_0_i_reg.100000000                               ; clk          ; clk         ; 0.000        ; 0.082      ; 0.739      ;
+; 0.463 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[22]                                    ; main:main_inst|main_while_body_nextInst_099_reg[22]                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.740      ;
+; 0.463 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[25]                                    ; main:main_inst|main_while_body_nextInst_099_reg[25]                                             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.740      ;
+; 0.463 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_144                                          ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_145                                          ; clk          ; clk         ; 0.000        ; 0.081      ; 0.739      ;
+; 0.465 ; main:main_inst|main_while_body_1_reg[5]                                                         ; main:main_inst|main_while_body_Pivot14_reg                                                      ; clk          ; clk         ; 0.000        ; 0.082      ; 0.742      ;
+; 0.465 ; main:main_inst|main_while_body_i_indvar_reg[3]                                                  ; main:main_inst|main_while_body_i_0_reg[3]                                                       ; clk          ; clk         ; 0.000        ; 0.082      ; 0.742      ;
+; 0.467 ; main:main_inst|cur_state.LEGUP_F_main_BB_if_else18_i_171                                        ; main:main_inst|cur_state.LEGUP_F_main_BB_addressCalculator_exit_172                             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.744      ;
+; 0.467 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock56_65                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock52_67                                         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.744      ;
+; 0.467 ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock60_63                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock89_71                                         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.744      ;
+; 0.467 ; main:main_inst|main_while_body_bit_select16_reg                                                 ; main:main_inst|cur_state.LEGUP_F_main_BB_if_then126_i_36                                        ; clk          ; clk         ; 0.000        ; 0.083      ; 0.745      ;
+; 0.467 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock96_76                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock92_78                                         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.744      ;
+; 0.467 ; main:main_inst|main_if_end61_tobool66_reg                                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_if_else15_i_170                                        ; clk          ; clk         ; 0.000        ; 0.082      ; 0.744      ;
+; 0.468 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock24_38                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock22_39                                         ; clk          ; clk         ; 0.000        ; 0.083      ; 0.746      ;
+; 0.468 ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock5_20                                          ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb_i_25                                             ; clk          ; clk         ; 0.000        ; 0.081      ; 0.744      ;
+; 0.468 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock127_130                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb1_i_132                                           ; clk          ; clk         ; 0.000        ; 0.082      ; 0.745      ;
+; 0.468 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock127_130                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb5_i_133                                           ; clk          ; clk         ; 0.000        ; 0.082      ; 0.745      ;
+; 0.468 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock143_122                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock141_123                                       ; clk          ; clk         ; 0.000        ; 0.081      ; 0.744      ;
+; 0.469 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock56_65                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock54_66                                         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.469 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock50_68                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock48_69                                         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.469 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock50_68                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock46_70                                         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.469 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock155_116                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb73_i_146                                          ; clk          ; clk         ; 0.000        ; 0.081      ; 0.745      ;
+; 0.469 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock155_116                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock153_117                                       ; clk          ; clk         ; 0.000        ; 0.081      ; 0.745      ;
+; 0.469 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock143_122                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb42_i_140                                          ; clk          ; clk         ; 0.000        ; 0.081      ; 0.745      ;
+; 0.469 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock161_113                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock159_114                                       ; clk          ; clk         ; 0.000        ; 0.081      ; 0.745      ;
+; 0.469 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock163_112                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock161_113                                       ; clk          ; clk         ; 0.000        ; 0.081      ; 0.745      ;
+; 0.469 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock175_106                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock173_107                                       ; clk          ; clk         ; 0.000        ; 0.081      ; 0.745      ;
+; 0.469 ; main:main_inst|cur_state.LEGUP_0                                                                ; main:main_inst|finish                                                                           ; clk          ; clk         ; 0.000        ; 0.081      ; 0.745      ;
+; 0.470 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock161_113                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb106_i_150                                         ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.470 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock163_112                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb88_i_148                                          ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.470 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock175_106                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock147_120                                       ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.470 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock105_87                                        ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock101_89                                        ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.470 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock105_87                                        ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock103_88                                        ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.471 ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock48_69                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock115_81                                        ; clk          ; clk         ; 0.000        ; 0.082      ; 0.748      ;
+; 0.471 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock153_117                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_alu_exit_154                                           ; clk          ; clk         ; 0.000        ; 0.081      ; 0.747      ;
+; 0.471 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock153_117                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb83_i_147                                          ; clk          ; clk         ; 0.000        ; 0.081      ; 0.747      ;
+; 0.472 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock96_76                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock94_77                                         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.749      ;
+; 0.475 ; main:main_inst|main_aluDecode_exit_tobool_reg                                                   ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock175_106                                       ; clk          ; clk         ; 0.000        ; 0.081      ; 0.751      ;
+; 0.476 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock78_54                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock58_64                                         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.753      ;
+; 0.477 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock78_54                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock76_55                                         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.754      ;
+; 0.480 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[14]                                     ; main:main_inst|main_sw_default142_i_results_sroa_14_0243_i_reg[14]                              ; clk          ; clk         ; 0.000        ; 0.083      ; 0.758      ;
+; 0.481 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[13]                                     ; main:main_inst|main_sw_default142_i_results_sroa_14_0243_i_reg[13]                              ; clk          ; clk         ; 0.000        ; 0.083      ; 0.759      ;
+; 0.481 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[30]                                     ; main:main_inst|main_sw_default142_i_results_sroa_14_0243_i_reg[30]                              ; clk          ; clk         ; 0.000        ; 0.083      ; 0.759      ;
+; 0.481 ; main:main_inst|main_while_body_shr6_i_reg[5]                                                    ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock118_94                                        ; clk          ; clk         ; 0.000        ; 0.082      ; 0.758      ;
+; 0.482 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[2]                                      ; main:main_inst|main_sw_default142_i_results_sroa_14_0243_i_reg[2]                               ; clk          ; clk         ; 0.000        ; 0.082      ; 0.759      ;
+; 0.482 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock113_82                                        ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock107_86                                        ; clk          ; clk         ; 0.000        ; 0.081      ; 0.758      ;
+; 0.482 ; main:main_inst|main_while_body_shr6_i_reg[5]                                                    ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock83_74                                         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.759      ;
+; 0.483 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[17]                                     ; main:main_inst|main_sw_default142_i_results_sroa_14_0243_i_reg[17]                              ; clk          ; clk         ; 0.000        ; 0.083      ; 0.761      ;
+; 0.483 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[16]                                     ; main:main_inst|main_sw_default142_i_results_sroa_14_0243_i_reg[16]                              ; clk          ; clk         ; 0.000        ; 0.083      ; 0.761      ;
+; 0.483 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock101_89                                        ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock99_90                                         ; clk          ; clk         ; 0.000        ; 0.081      ; 0.759      ;
+; 0.483 ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_10                                 ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_11                                 ; clk          ; clk         ; 0.000        ; 0.082      ; 0.760      ;
+; 0.485 ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_6                                  ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_7                                  ; clk          ; clk         ; 0.000        ; 0.081      ; 0.761      ;
+; 0.486 ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_5                                  ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_6                                  ; clk          ; clk         ; 0.000        ; 0.081      ; 0.762      ;
+; 0.487 ; main:main_inst|cur_state.LEGUP_F_main_BB_while_body_i_2                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_while_body_i_3                                         ; clk          ; clk         ; 0.000        ; 0.081      ; 0.763      ;
+; 0.489 ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_11                                 ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_12                                 ; clk          ; clk         ; 0.000        ; 0.082      ; 0.766      ;
+; 0.492 ; main:main_inst|cur_state.LEGUP_F_main_BB_while_body_lr_ph_1                                     ; main:main_inst|cur_state.LEGUP_F_main_BB_while_body_i_2                                         ; clk          ; clk         ; 0.000        ; 0.081      ; 0.768      ;
+; 0.496 ; main:main_inst|main_aluDecode_exit_tobool_reg                                                   ; main:main_inst|cur_state.LEGUP_F_main_BB_if_else_104                                            ; clk          ; clk         ; 0.000        ; 0.081      ; 0.772      ;
+; 0.503 ; main:main_inst|main_while_body_shr6_i_reg[5]                                                    ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock120_93                                        ; clk          ; clk         ; 0.000        ; 0.082      ; 0.780      ;
+; 0.504 ; main:main_inst|main_while_body_shr6_i_reg[5]                                                    ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock85_73                                         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.781      ;
+; 0.509 ; main:main_inst|cur_state.LEGUP_F_main_BB_if_then126_i_36                                        ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock24_38                                         ; clk          ; clk         ; 0.000        ; 0.083      ; 0.787      ;
++-------+-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Slow 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 9.253 ; 0.000              ;
++-------+-------+--------------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.181 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+-------+----------------------------------+
+; Clock ; Slack ; End Point TNS                    ;
++-------+-------+----------------------------------+
+; clk   ; 7.230 ; 0.000                            ;
++-------+-------+----------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'clk'                                                                                                                                                                      ;
++-------+--------------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                    ; To Node                                                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 9.253 ; main:main_inst|main_while_body_nextInst_099_reg[4]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.060     ; 5.674      ;
+; 9.335 ; main:main_inst|main_NodeBlock175_aluB_0_reg[1]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.044     ; 5.608      ;
+; 9.340 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_145       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[21] ; clk          ; clk         ; 15.000       ; -0.031     ; 5.616      ;
+; 9.351 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_145       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.031     ; 5.605      ;
+; 9.360 ; main:main_inst|main_NodeBlock175_aluB_0_reg[3]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.065     ; 5.562      ;
+; 9.361 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.035     ; 5.591      ;
+; 9.362 ; main:main_inst|main_NodeBlock175_aluB_0_reg[0]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[27] ; clk          ; clk         ; 15.000       ; -0.042     ; 5.583      ;
+; 9.375 ; main:main_inst|main_NodeBlock175_aluB_0_reg[9]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.065     ; 5.547      ;
+; 9.376 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[24] ; clk          ; clk         ; 15.000       ; -0.041     ; 5.570      ;
+; 9.378 ; main:main_inst|main_aluDecode_exit_2_reg[14]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.040     ; 5.569      ;
+; 9.378 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.048     ; 5.561      ;
+; 9.387 ; main:main_inst|main_NodeBlock175_aluB_0_reg[5]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.059     ; 5.541      ;
+; 9.389 ; main:main_inst|main_aluDecode_exit_2_reg[1]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.044     ; 5.554      ;
+; 9.411 ; main:main_inst|main_NodeBlock175_aluB_0_reg[2]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.065     ; 5.511      ;
+; 9.415 ; main:main_inst|main_aluDecode_exit_2_reg[19]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[27] ; clk          ; clk         ; 15.000       ; -0.035     ; 5.537      ;
+; 9.417 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.056     ; 5.514      ;
+; 9.440 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_145       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[20] ; clk          ; clk         ; 15.000       ; -0.042     ; 5.505      ;
+; 9.454 ; main:main_inst|main_NodeBlock175_aluB_0_reg[1]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.047     ; 5.486      ;
+; 9.458 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb83_i_147       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[21] ; clk          ; clk         ; 15.000       ; -0.049     ; 5.480      ;
+; 9.459 ; main:main_inst|main_while_body_nextInst_099_reg[10]          ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.061     ; 5.467      ;
+; 9.465 ; main:main_inst|main_aluDecode_exit_2_reg[17]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.044     ; 5.478      ;
+; 9.469 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb83_i_147       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.049     ; 5.469      ;
+; 9.487 ; main:main_inst|main_while_body_nextInst_099_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.050     ; 5.450      ;
+; 9.490 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.044     ; 5.453      ;
+; 9.492 ; main:main_inst|main_NodeBlock175_aluB_0_reg[0]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.047     ; 5.448      ;
+; 9.513 ; main:main_inst|main_NodeBlock175_aluB_0_reg[2]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.068     ; 5.406      ;
+; 9.518 ; main:main_inst|main_aluDecode_exit_2_reg[22]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.042     ; 5.427      ;
+; 9.522 ; main:main_inst|main_aluDecode_exit_2_reg[0]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[3]  ; clk          ; clk         ; 15.000       ; -0.060     ; 5.405      ;
+; 9.523 ; main:main_inst|main_NodeBlock175_aluB_0_reg[0]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.044     ; 5.420      ;
+; 9.524 ; main:main_inst|main_while_body_nextInst_099_reg[4]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[28] ; clk          ; clk         ; 15.000       ; -0.060     ; 5.403      ;
+; 9.539 ; main:main_inst|main_aluDecode_exit_2_reg[2]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.044     ; 5.404      ;
+; 9.547 ; main:main_inst|main_NodeBlock175_aluB_0_reg[3]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.059     ; 5.381      ;
+; 9.561 ; main:main_inst|main_NodeBlock175_aluB_0_reg[6]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.059     ; 5.367      ;
+; 9.564 ; main:main_inst|main_aluDecode_exit_2_reg[2]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[3]  ; clk          ; clk         ; 15.000       ; -0.060     ; 5.363      ;
+; 9.570 ; main:main_inst|main_aluDecode_exit_2_reg[0]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.056     ; 5.361      ;
+; 9.582 ; main:main_inst|main_aluDecode_exit_2_reg[6]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.038     ; 5.367      ;
+; 9.582 ; main:main_inst|main_aluDecode_exit_2_reg[19]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.044     ; 5.361      ;
+; 9.587 ; main:main_inst|main_aluDecode_exit_2_reg[7]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.038     ; 5.362      ;
+; 9.597 ; main:main_inst|main_aluDecode_exit_2_reg[6]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[24] ; clk          ; clk         ; 15.000       ; -0.044     ; 5.346      ;
+; 9.598 ; main:main_inst|main_aluDecode_exit_2_reg[14]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[21] ; clk          ; clk         ; 15.000       ; -0.044     ; 5.345      ;
+; 9.606 ; main:main_inst|main_NodeBlock175_aluB_0_reg[1]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[28] ; clk          ; clk         ; 15.000       ; -0.044     ; 5.337      ;
+; 9.609 ; main:main_inst|main_aluDecode_exit_2_reg[1]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[3]  ; clk          ; clk         ; 15.000       ; -0.060     ; 5.318      ;
+; 9.612 ; main:main_inst|main_aluDecode_exit_2_reg[2]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.056     ; 5.319      ;
+; 9.613 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[19] ; clk          ; clk         ; 15.000       ; -0.059     ; 5.315      ;
+; 9.613 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb73_i_146       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[21] ; clk          ; clk         ; 15.000       ; -0.049     ; 5.325      ;
+; 9.615 ; main:main_inst|main_aluDecode_exit_2_reg[3]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[3]  ; clk          ; clk         ; 15.000       ; -0.060     ; 5.312      ;
+; 9.619 ; main:main_inst|main_NodeBlock175_aluB_0_reg[4]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.065     ; 5.303      ;
+; 9.621 ; main:main_inst|main_NodeBlock175_aluB_0_reg[2]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.059     ; 5.307      ;
+; 9.622 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[13] ; clk          ; clk         ; 15.000       ; -0.019     ; 5.346      ;
+; 9.622 ; main:main_inst|main_NodeBlock175_aluB_0_reg[0]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.059     ; 5.306      ;
+; 9.623 ; main:main_inst|main_while_body_nextInst_099_reg[4]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.075     ; 5.289      ;
+; 9.624 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb73_i_146       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.049     ; 5.314      ;
+; 9.624 ; main:main_inst|main_aluDecode_exit_2_reg[6]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.059     ; 5.304      ;
+; 9.627 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_145       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[22] ; clk          ; clk         ; 15.000       ; -0.042     ; 5.318      ;
+; 9.627 ; main:main_inst|main_aluDecode_exit_2_reg[23]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.044     ; 5.316      ;
+; 9.628 ; main:main_inst|main_aluDecode_exit_2_reg[7]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.059     ; 5.300      ;
+; 9.629 ; main:main_inst|main_NodeBlock175_aluB_0_reg[0]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[0]  ; clk          ; clk         ; 15.000       ; -0.060     ; 5.298      ;
+; 9.631 ; main:main_inst|main_NodeBlock175_aluB_0_reg[3]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[28] ; clk          ; clk         ; 15.000       ; -0.065     ; 5.291      ;
+; 9.632 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_145       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.018     ; 5.337      ;
+; 9.633 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[26] ; clk          ; clk         ; 15.000       ; -0.039     ; 5.315      ;
+; 9.639 ; main:main_inst|main_NodeBlock175_aluB_0_reg[0]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[3]  ; clk          ; clk         ; 15.000       ; -0.063     ; 5.285      ;
+; 9.643 ; main:main_inst|main_NodeBlock175_aluB_0_reg[11]~_Duplicate_2 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.065     ; 5.279      ;
+; 9.644 ; main:main_inst|main_NodeBlock175_aluB_0_reg[15]~_Duplicate_2 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.059     ; 5.284      ;
+; 9.644 ; main:main_inst|main_NodeBlock175_aluB_0_reg[7]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.059     ; 5.284      ;
+; 9.645 ; main:main_inst|main_aluDecode_exit_2_reg[8]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.038     ; 5.304      ;
+; 9.645 ; main:main_inst|main_aluDecode_exit_2_reg[10]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.047     ; 5.295      ;
+; 9.646 ; main:main_inst|main_NodeBlock175_aluB_0_reg[9]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[28] ; clk          ; clk         ; 15.000       ; -0.065     ; 5.276      ;
+; 9.646 ; main:main_inst|main_aluDecode_exit_2_reg[3]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.035     ; 5.306      ;
+; 9.647 ; main:main_inst|main_aluDecode_exit_2_reg[21]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[27] ; clk          ; clk         ; 15.000       ; -0.031     ; 5.309      ;
+; 9.651 ; main:main_inst|main_aluDecode_exit_2_reg[20]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.044     ; 5.292      ;
+; 9.657 ; main:main_inst|main_aluDecode_exit_2_reg[1]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.056     ; 5.274      ;
+; 9.658 ; main:main_inst|main_NodeBlock175_aluB_0_reg[5]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[28] ; clk          ; clk         ; 15.000       ; -0.059     ; 5.270      ;
+; 9.660 ; main:main_inst|main_aluDecode_exit_2_reg[8]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[24] ; clk          ; clk         ; 15.000       ; -0.044     ; 5.283      ;
+; 9.661 ; main:main_inst|main_aluDecode_exit_2_reg[3]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[24] ; clk          ; clk         ; 15.000       ; -0.041     ; 5.285      ;
+; 9.661 ; main:main_inst|main_aluDecode_exit_2_reg[19]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[0]  ; clk          ; clk         ; 15.000       ; -0.053     ; 5.273      ;
+; 9.663 ; main:main_inst|main_aluDecode_exit_2_reg[3]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.056     ; 5.268      ;
+; 9.669 ; main:main_inst|main_aluDecode_exit_2_reg[7]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[13] ; clk          ; clk         ; 15.000       ; -0.022     ; 5.296      ;
+; 9.670 ; main:main_inst|main_while_body_nextInst_099_reg[5]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.060     ; 5.257      ;
+; 9.676 ; main:main_inst|main_aluDecode_exit_2_reg[1]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.035     ; 5.276      ;
+; 9.677 ; main:main_inst|main_while_body_bit_concat43_reg[0]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.038     ; 5.272      ;
+; 9.677 ; main:main_inst|main_aluDecode_exit_2_reg[4]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.051     ; 5.259      ;
+; 9.678 ; main:main_inst|main_aluDecode_exit_2_reg[3]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]  ; clk          ; clk         ; 15.000       ; -0.044     ; 5.265      ;
+; 9.680 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[11] ; clk          ; clk         ; 15.000       ; -0.032     ; 5.275      ;
+; 9.681 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb83_i_147       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[8]  ; clk          ; clk         ; 15.000       ; -0.036     ; 5.270      ;
+; 9.682 ; main:main_inst|main_aluDecode_exit_2_reg[21]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[23] ; clk          ; clk         ; 15.000       ; -0.040     ; 5.265      ;
+; 9.682 ; main:main_inst|main_NodeBlock175_aluB_0_reg[2]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[28] ; clk          ; clk         ; 15.000       ; -0.065     ; 5.240      ;
+; 9.684 ; main:main_inst|main_aluDecode_exit_2_reg[20]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[27] ; clk          ; clk         ; 15.000       ; -0.035     ; 5.268      ;
+; 9.686 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[12] ; clk          ; clk         ; 15.000       ; -0.032     ; 5.269      ;
+; 9.687 ; main:main_inst|main_NodeBlock175_aluB_0_reg[13]~_Duplicate_2 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[29] ; clk          ; clk         ; 15.000       ; -0.059     ; 5.241      ;
+; 9.691 ; main:main_inst|main_aluDecode_exit_2_reg[5]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.056     ; 5.240      ;
+; 9.691 ; main:main_inst|main_aluDecode_exit_2_reg[1]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[24] ; clk          ; clk         ; 15.000       ; -0.041     ; 5.255      ;
+; 9.692 ; main:main_inst|main_while_body_bit_concat43_reg[0]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[24] ; clk          ; clk         ; 15.000       ; -0.044     ; 5.251      ;
+; 9.693 ; main:main_inst|main_NodeBlock175_aluB_0_reg[9]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[31] ; clk          ; clk         ; 15.000       ; -0.081     ; 5.213      ;
+; 9.695 ; main:main_inst|main_aluDecode_exit_2_reg[8]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[27] ; clk          ; clk         ; 15.000       ; -0.042     ; 5.250      ;
+; 9.697 ; main:main_inst|main_while_body_bit_concat43_reg[1]           ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[3]  ; clk          ; clk         ; 15.000       ; -0.060     ; 5.230      ;
+; 9.699 ; main:main_inst|main_aluDecode_exit_2_reg[18]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[27] ; clk          ; clk         ; 15.000       ; -0.035     ; 5.253      ;
+; 9.700 ; main:main_inst|main_aluDecode_exit_2_reg[17]                 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[19] ; clk          ; clk         ; 15.000       ; -0.055     ; 5.232      ;
+; 9.705 ; main:main_inst|main_NodeBlock175_aluB_0_reg[1]~_Duplicate_2  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[7]  ; clk          ; clk         ; 15.000       ; -0.059     ; 5.223      ;
+; 9.713 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb73_i_146       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[20] ; clk          ; clk         ; 15.000       ; -0.060     ; 5.214      ;
+; 9.716 ; main:main_inst|main_aluDecode_exit_2_reg[3]                  ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[13] ; clk          ; clk         ; 15.000       ; -0.019     ; 5.252      ;
++-------+--------------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'clk'                                                                                                                                                                                                                                                ;
++-------+-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                                                       ; To Node                                                                                         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.181 ; main:main_inst|main_aluDecode_exit_results_sroa_31_0250_i4_reg.00000001000000000000000000000000 ; main:main_inst|main_aluDecode_exit_results_sroa_31_0250_i4_reg.00000001000000000000000000000000 ; clk          ; clk         ; 0.000        ; 0.042      ; 0.307      ;
+; 0.181 ; main:main_inst|main_aluDecode_exit_results_sroa_37_0_i6_reg.0000000100000000                    ; main:main_inst|main_aluDecode_exit_results_sroa_37_0_i6_reg.0000000100000000                    ; clk          ; clk         ; 0.000        ; 0.042      ; 0.307      ;
+; 0.181 ; main:main_inst|main_aluDecode_exit_call13_reg[2]                                                ; main:main_inst|main_aluDecode_exit_call13_reg[2]                                                ; clk          ; clk         ; 0.000        ; 0.042      ; 0.307      ;
+; 0.181 ; main:main_inst|main_aluDecode_exit_results_sroa_34_0252_i2_reg.0000000000000001                 ; main:main_inst|main_aluDecode_exit_results_sroa_34_0252_i2_reg.0000000000000001                 ; clk          ; clk         ; 0.000        ; 0.042      ; 0.307      ;
+; 0.181 ; main:main_inst|main_NodeBlock43_results_sroa_23_0_i_reg                                         ; main:main_inst|main_NodeBlock43_results_sroa_23_0_i_reg                                         ; clk          ; clk         ; 0.000        ; 0.042      ; 0.307      ;
+; 0.181 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[5]                                      ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[5]                                      ; clk          ; clk         ; 0.000        ; 0.042      ; 0.307      ;
+; 0.182 ; main:main_inst|finish                                                                           ; main:main_inst|finish                                                                           ; clk          ; clk         ; 0.000        ; 0.041      ; 0.307      ;
+; 0.182 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[0]                                     ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[0]                                     ; clk          ; clk         ; 0.000        ; 0.041      ; 0.307      ;
+; 0.182 ; main:main_inst|main_if_end42_results_sroa_53_6_i15_reg[0]                                       ; main:main_inst|main_if_end42_results_sroa_53_6_i15_reg[0]                                       ; clk          ; clk         ; 0.000        ; 0.041      ; 0.307      ;
+; 0.182 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]                                        ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[1]                                        ; clk          ; clk         ; 0.000        ; 0.041      ; 0.307      ;
+; 0.182 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[30]                                       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[30]                                       ; clk          ; clk         ; 0.000        ; 0.041      ; 0.307      ;
+; 0.182 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[15]                                       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[15]                                       ; clk          ; clk         ; 0.000        ; 0.041      ; 0.307      ;
+; 0.182 ; main:main_inst|main_NodeBlock78_results_sroa_26_0_i_reg.100000000                               ; main:main_inst|main_NodeBlock78_results_sroa_26_0_i_reg.100000000                               ; clk          ; clk         ; 0.000        ; 0.041      ; 0.307      ;
+; 0.182 ; main:main_inst|main_sw_default148_i_results_sroa_28_0249_i_reg[16]                              ; main:main_inst|main_sw_default148_i_results_sroa_28_0249_i_reg[16]                              ; clk          ; clk         ; 0.000        ; 0.041      ; 0.307      ;
+; 0.182 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[0]                                      ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[0]                                      ; clk          ; clk         ; 0.000        ; 0.041      ; 0.307      ;
+; 0.182 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[11]                                     ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[11]                                     ; clk          ; clk         ; 0.000        ; 0.041      ; 0.307      ;
+; 0.182 ; main:main_inst|cur_state.LEGUP_0                                                                ; main:main_inst|cur_state.LEGUP_0                                                                ; clk          ; clk         ; 0.000        ; 0.041      ; 0.307      ;
+; 0.183 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[0]                                        ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[0]                                        ; clk          ; clk         ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[16]                                       ; main:main_inst|main_if_end42_results_sroa_0_2_i16_reg[16]                                       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.307      ;
+; 0.188 ; main:main_inst|main_sw_default148_i_results_sroa_14_0241245_i_reg[14]                           ; main:main_inst|main_NodeBlock78_results_sroa_14_0241244_i_reg[14]                               ; clk          ; clk         ; 0.000        ; 0.042      ; 0.314      ;
+; 0.188 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[30]                                    ; main:main_inst|main_while_body_nextInst_099_reg[30]                                             ; clk          ; clk         ; 0.000        ; 0.042      ; 0.314      ;
+; 0.188 ; main:main_inst|cur_state.LEGUP_F_main_BB_switch_lookup_i_98                                     ; main:main_inst|cur_state.LEGUP_F_main_BB_switch_lookup_i_99                                     ; clk          ; clk         ; 0.000        ; 0.041      ; 0.313      ;
+; 0.188 ; main:main_inst|main_while_body_i_0_reg[3]                                                       ; main:main_inst|main_while_body_i_indvar_reg[3]                                                  ; clk          ; clk         ; 0.000        ; 0.041      ; 0.313      ;
+; 0.188 ; main:main_inst|main_while_body_i_0_reg[1]                                                       ; main:main_inst|main_while_body_i_indvar_reg[1]                                                  ; clk          ; clk         ; 0.000        ; 0.041      ; 0.313      ;
+; 0.189 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[12]                                    ; main:main_inst|main_while_body_nextInst_099_reg[12]                                             ; clk          ; clk         ; 0.000        ; 0.041      ; 0.314      ;
+; 0.189 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[16]                                    ; main:main_inst|main_while_body_nextInst_099_reg[16]                                             ; clk          ; clk         ; 0.000        ; 0.042      ; 0.315      ;
+; 0.189 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[21]                                    ; main:main_inst|main_while_body_nextInst_099_reg[21]                                             ; clk          ; clk         ; 0.000        ; 0.041      ; 0.314      ;
+; 0.189 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[31]                                    ; main:main_inst|main_while_body_nextInst_099_reg[31]                                             ; clk          ; clk         ; 0.000        ; 0.041      ; 0.314      ;
+; 0.189 ; main:main_inst|cur_state.LEGUP_F_main_BB_switch_lookup54_i_100                                  ; main:main_inst|cur_state.LEGUP_F_main_BB_switch_lookup54_i_101                                  ; clk          ; clk         ; 0.000        ; 0.041      ; 0.314      ;
+; 0.189 ; main:main_inst|main_while_body_i_0_reg[2]                                                       ; main:main_inst|main_while_body_i_indvar_reg[2]                                                  ; clk          ; clk         ; 0.000        ; 0.041      ; 0.314      ;
+; 0.189 ; main:main_inst|main_while_body_i_0_reg[0]                                                       ; main:main_inst|main_while_body_i_indvar_reg[0]                                                  ; clk          ; clk         ; 0.000        ; 0.041      ; 0.314      ;
+; 0.190 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[18]                                    ; main:main_inst|main_while_body_nextInst_099_reg[18]                                             ; clk          ; clk         ; 0.000        ; 0.041      ; 0.315      ;
+; 0.190 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[19]                                    ; main:main_inst|main_while_body_nextInst_099_reg[19]                                             ; clk          ; clk         ; 0.000        ; 0.041      ; 0.315      ;
+; 0.190 ; main:main_inst|cur_state.LEGUP_F_main_BB_if_then56_164                                          ; main:main_inst|cur_state.LEGUP_F_main_BB_if_end61_165                                           ; clk          ; clk         ; 0.000        ; 0.040      ; 0.314      ;
+; 0.190 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_144                                          ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb65_i_145                                          ; clk          ; clk         ; 0.000        ; 0.041      ; 0.315      ;
+; 0.190 ; main:main_inst|main_while_body_i_0_reg[5]                                                       ; main:main_inst|main_while_body_i_indvar_reg[5]                                                  ; clk          ; clk         ; 0.000        ; 0.041      ; 0.315      ;
+; 0.191 ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock60_63                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock89_71                                         ; clk          ; clk         ; 0.000        ; 0.042      ; 0.317      ;
+; 0.191 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[10]                                    ; main:main_inst|main_while_body_nextInst_099_reg[10]                                             ; clk          ; clk         ; 0.000        ; 0.041      ; 0.316      ;
+; 0.191 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[22]                                    ; main:main_inst|main_while_body_nextInst_099_reg[22]                                             ; clk          ; clk         ; 0.000        ; 0.041      ; 0.316      ;
+; 0.191 ; main:main_inst|main_addressCalculator_exit_newPc_0_i_reg[25]                                    ; main:main_inst|main_while_body_nextInst_099_reg[25]                                             ; clk          ; clk         ; 0.000        ; 0.041      ; 0.316      ;
+; 0.192 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock24_38                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock22_39                                         ; clk          ; clk         ; 0.000        ; 0.042      ; 0.318      ;
+; 0.192 ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock5_20                                          ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb_i_25                                             ; clk          ; clk         ; 0.000        ; 0.041      ; 0.317      ;
+; 0.192 ; main:main_inst|main_while_body_bit_select16_reg                                                 ; main:main_inst|cur_state.LEGUP_F_main_BB_if_then126_i_36                                        ; clk          ; clk         ; 0.000        ; 0.042      ; 0.318      ;
+; 0.192 ; main:main_inst|main_if_end61_tobool66_reg                                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_if_else15_i_170                                        ; clk          ; clk         ; 0.000        ; 0.041      ; 0.317      ;
+; 0.193 ; main:main_inst|cur_state.LEGUP_F_main_BB_if_else18_i_171                                        ; main:main_inst|cur_state.LEGUP_F_main_BB_addressCalculator_exit_172                             ; clk          ; clk         ; 0.000        ; 0.041      ; 0.318      ;
+; 0.193 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock56_65                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock52_67                                         ; clk          ; clk         ; 0.000        ; 0.041      ; 0.318      ;
+; 0.193 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock50_68                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock48_69                                         ; clk          ; clk         ; 0.000        ; 0.041      ; 0.318      ;
+; 0.193 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock127_130                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb1_i_132                                           ; clk          ; clk         ; 0.000        ; 0.041      ; 0.318      ;
+; 0.193 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock127_130                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb5_i_133                                           ; clk          ; clk         ; 0.000        ; 0.041      ; 0.318      ;
+; 0.193 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock155_116                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb73_i_146                                          ; clk          ; clk         ; 0.000        ; 0.041      ; 0.318      ;
+; 0.193 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock155_116                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock153_117                                       ; clk          ; clk         ; 0.000        ; 0.041      ; 0.318      ;
+; 0.193 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock143_122                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock141_123                                       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.317      ;
+; 0.193 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock161_113                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock159_114                                       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.317      ;
+; 0.193 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock163_112                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock161_113                                       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.317      ;
+; 0.193 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock96_76                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock92_78                                         ; clk          ; clk         ; 0.000        ; 0.041      ; 0.318      ;
+; 0.193 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock105_87                                        ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock101_89                                        ; clk          ; clk         ; 0.000        ; 0.041      ; 0.318      ;
+; 0.193 ; main:main_inst|cur_state.LEGUP_0                                                                ; main:main_inst|finish                                                                           ; clk          ; clk         ; 0.000        ; 0.041      ; 0.318      ;
+; 0.194 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock56_65                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock54_66                                         ; clk          ; clk         ; 0.000        ; 0.041      ; 0.319      ;
+; 0.194 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock50_68                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock46_70                                         ; clk          ; clk         ; 0.000        ; 0.041      ; 0.319      ;
+; 0.194 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock153_117                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb83_i_147                                          ; clk          ; clk         ; 0.000        ; 0.041      ; 0.319      ;
+; 0.194 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock143_122                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb42_i_140                                          ; clk          ; clk         ; 0.000        ; 0.040      ; 0.318      ;
+; 0.194 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock161_113                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb106_i_150                                         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.318      ;
+; 0.194 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock175_106                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock173_107                                       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.318      ;
+; 0.194 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock105_87                                        ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock103_88                                        ; clk          ; clk         ; 0.000        ; 0.041      ; 0.319      ;
+; 0.195 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock153_117                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_alu_exit_154                                           ; clk          ; clk         ; 0.000        ; 0.041      ; 0.320      ;
+; 0.195 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock163_112                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_bb88_i_148                                          ; clk          ; clk         ; 0.000        ; 0.040      ; 0.319      ;
+; 0.195 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock175_106                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock147_120                                       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.319      ;
+; 0.196 ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock48_69                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock115_81                                        ; clk          ; clk         ; 0.000        ; 0.041      ; 0.321      ;
+; 0.196 ; main:main_inst|main_while_body_bit_select16_reg                                                 ; main:main_inst|cur_state.LEGUP_F_main_BB_if_else131_i_37                                        ; clk          ; clk         ; 0.000        ; 0.042      ; 0.322      ;
+; 0.196 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock96_76                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock94_77                                         ; clk          ; clk         ; 0.000        ; 0.041      ; 0.321      ;
+; 0.197 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock78_54                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock76_55                                         ; clk          ; clk         ; 0.000        ; 0.041      ; 0.322      ;
+; 0.197 ; main:main_inst|main_if_end61_tobool66_reg                                                       ; main:main_inst|cur_state.LEGUP_F_main_BB_if_then13_i_169                                        ; clk          ; clk         ; 0.000        ; 0.041      ; 0.322      ;
+; 0.197 ; main:main_inst|cur_state.LEGUP_0                                                                ; main:main_inst|cur_state.LEGUP_F_main_BB_while_body_lr_ph_1                                     ; clk          ; clk         ; 0.000        ; 0.041      ; 0.322      ;
+; 0.198 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock78_54                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock58_64                                         ; clk          ; clk         ; 0.000        ; 0.041      ; 0.323      ;
+; 0.198 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[2]                                      ; main:main_inst|main_sw_default142_i_results_sroa_14_0243_i_reg[2]                               ; clk          ; clk         ; 0.000        ; 0.043      ; 0.325      ;
+; 0.198 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[14]                                     ; main:main_inst|main_sw_default142_i_results_sroa_14_0243_i_reg[14]                              ; clk          ; clk         ; 0.000        ; 0.042      ; 0.324      ;
+; 0.199 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[13]                                     ; main:main_inst|main_sw_default142_i_results_sroa_14_0243_i_reg[13]                              ; clk          ; clk         ; 0.000        ; 0.042      ; 0.325      ;
+; 0.199 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[30]                                     ; main:main_inst|main_sw_default142_i_results_sroa_14_0243_i_reg[30]                              ; clk          ; clk         ; 0.000        ; 0.042      ; 0.325      ;
+; 0.199 ; main:main_inst|cur_state.LEGUP_F_main_BB_while_end_176                                          ; main:main_inst|cur_state.LEGUP_0                                                                ; clk          ; clk         ; 0.000        ; 0.041      ; 0.324      ;
+; 0.200 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock113_82                                        ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock107_86                                        ; clk          ; clk         ; 0.000        ; 0.041      ; 0.325      ;
+; 0.201 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[16]                                     ; main:main_inst|main_sw_default142_i_results_sroa_14_0243_i_reg[16]                              ; clk          ; clk         ; 0.000        ; 0.042      ; 0.327      ;
+; 0.201 ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock101_89                                        ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock99_90                                         ; clk          ; clk         ; 0.000        ; 0.041      ; 0.326      ;
+; 0.201 ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_10                                 ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_11                                 ; clk          ; clk         ; 0.000        ; 0.041      ; 0.326      ;
+; 0.202 ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[17]                                     ; main:main_inst|main_sw_default142_i_results_sroa_14_0243_i_reg[17]                              ; clk          ; clk         ; 0.000        ; 0.042      ; 0.328      ;
+; 0.202 ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_6                                  ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_7                                  ; clk          ; clk         ; 0.000        ; 0.041      ; 0.327      ;
+; 0.203 ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_5                                  ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_6                                  ; clk          ; clk         ; 0.000        ; 0.041      ; 0.328      ;
+; 0.203 ; main:main_inst|main_while_body_i_indvar_reg[3]                                                  ; main:main_inst|main_while_body_i_0_reg[3]                                                       ; clk          ; clk         ; 0.000        ; 0.041      ; 0.328      ;
+; 0.204 ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_11                                 ; main:main_inst|cur_state.LEGUP_F_main_BB_legup_memset_4_exit_12                                 ; clk          ; clk         ; 0.000        ; 0.041      ; 0.329      ;
+; 0.204 ; main:main_inst|cur_state.LEGUP_F_main_BB_while_body_i_2                                         ; main:main_inst|cur_state.LEGUP_F_main_BB_while_body_i_3                                         ; clk          ; clk         ; 0.000        ; 0.041      ; 0.329      ;
+; 0.205 ; main:main_inst|main_while_body_1_reg[5]                                                         ; main:main_inst|main_while_body_Pivot14_reg                                                      ; clk          ; clk         ; 0.000        ; 0.042      ; 0.331      ;
+; 0.206 ; main:main_inst|cur_state.LEGUP_F_main_BB_while_body_lr_ph_1                                     ; main:main_inst|cur_state.LEGUP_F_main_BB_while_body_i_2                                         ; clk          ; clk         ; 0.000        ; 0.041      ; 0.331      ;
+; 0.206 ; main:main_inst|cur_state.LEGUP_F_main_BB_sw_default148_i_53                                     ; main:main_inst|main_NodeBlock78_results_sroa_26_0_i_reg.100000000                               ; clk          ; clk         ; 0.000        ; 0.041      ; 0.331      ;
+; 0.206 ; main:main_inst|cur_state.LEGUP_F_main_BB_if_then44_i_29                                         ; main:main_inst|main_NodeBlock24_results_sroa_14_0_i_reg[0]                                      ; clk          ; clk         ; 0.000        ; 0.041      ; 0.331      ;
+; 0.208 ; main:main_inst|main_aluDecode_exit_tobool_reg                                                   ; main:main_inst|cur_state.LEGUP_F_main_BB_if_else_104                                            ; clk          ; clk         ; 0.000        ; 0.040      ; 0.332      ;
+; 0.212 ; main:main_inst|main_aluDecode_exit_tobool_reg                                                   ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock175_106                                       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.336      ;
+; 0.212 ; main:main_inst|main_while_body_shr6_i_reg[5]                                                    ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock120_93                                        ; clk          ; clk         ; 0.000        ; 0.041      ; 0.337      ;
+; 0.213 ; main:main_inst|main_while_body_shr6_i_reg[5]                                                    ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock85_73                                         ; clk          ; clk         ; 0.000        ; 0.041      ; 0.338      ;
+; 0.214 ; main:main_inst|cur_state.LEGUP_F_main_BB_if_then126_i_36                                        ; main:main_inst|cur_state.LEGUP_F_main_BB_NodeBlock24_38                                         ; clk          ; clk         ; 0.000        ; 0.042      ; 0.340      ;
+; 0.217 ; main:main_inst|main_while_body_1_reg[14]                                                        ; main:main_inst|main_while_body_bit_select28_reg[2]                                              ; clk          ; clk         ; 0.000        ; 0.042      ; 0.343      ;
+; 0.217 ; main:main_inst|main_while_body_shr6_i_reg[5]                                                    ; main:main_inst|cur_state.LEGUP_F_main_BB_LeafBlock118_94                                        ; clk          ; clk         ; 0.000        ; 0.041      ; 0.342      ;
++-------+-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Fast 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++-----------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                         ;
++------------------+-------+-------+----------+---------+---------------------+
+; Clock            ; Setup ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+-------+-------+----------+---------+---------------------+
+; Worst-case Slack ; 1.791 ; 0.181 ; N/A      ; N/A     ; 7.059               ;
+;  clk             ; 1.791 ; 0.181 ; N/A      ; N/A     ; 7.059               ;
+; Design-wide TNS  ; 0.0   ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
+;  clk             ; 0.000 ; 0.000 ; N/A      ; N/A     ; 0.000               ;
++------------------+-------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.74e-09 V                   ; 2.37 V              ; -0.0346 V           ; 0.198 V                              ; 0.094 V                              ; 3.14e-10 s                  ; 2.92e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.74e-09 V                  ; 2.37 V             ; -0.0346 V          ; 0.198 V                             ; 0.094 V                             ; 3.14e-10 s                 ; 2.92e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.55e-07 V                   ; 2.35 V              ; -0.00221 V          ; 0.097 V                              ; 0.005 V                              ; 4.49e-10 s                  ; 3.85e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.55e-07 V                  ; 2.35 V             ; -0.00221 V         ; 0.097 V                             ; 0.005 V                             ; 4.49e-10 s                 ; 3.85e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.74 V              ; -0.06 V             ; 0.158 V                              ; 0.08 V                               ; 2.68e-10 s                  ; 2.19e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.74 V             ; -0.06 V            ; 0.158 V                             ; 0.08 V                              ; 2.68e-10 s                 ; 2.19e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 84462    ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 84462    ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 176   ; 176  ;
+; Unconstrained Output Ports      ; 1     ; 1    ;
+; Unconstrained Output Port Paths ; 1     ; 1    ;
++---------------------------------+-------+------+
+
+
++-------------------------------------+
+; Clock Status Summary                ;
++--------+-------+------+-------------+
+; Target ; Clock ; Type ; Status      ;
++--------+-------+------+-------------+
+; clk    ; clk   ; Base ; Constrained ;
++--------+-------+------+-------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; start      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; finish      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; start      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; finish      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime TimeQuest Timing Analyzer
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Mon Jun 29 11:05:42 2020
+Info: Command: quartus_sta top -c top
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (21076): High junction temperature operating condition is not set. Assuming a default value of '85'.
+Info (21076): Low junction temperature operating condition is not set. Assuming a default value of '0'.
+Info (332104): Reading SDC File: 'CPU_Benchmarking.sdc'
+Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Info (332146): Worst-case setup slack is 1.791
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     1.791               0.000 clk 
+Info (332146): Worst-case hold slack is 0.442
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.442               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 7.059
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     7.059               0.000 clk 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Info (332146): Worst-case setup slack is 2.548
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     2.548               0.000 clk 
+Info (332146): Worst-case hold slack is 0.391
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.391               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 7.088
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     7.088               0.000 clk 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Info (332146): Worst-case setup slack is 9.253
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     9.253               0.000 clk 
+Info (332146): Worst-case hold slack is 0.181
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.181               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 7.230
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     7.230               0.000 clk 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4925 megabytes
+    Info: Processing ended: Mon Jun 29 11:05:46 2020
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
+
+

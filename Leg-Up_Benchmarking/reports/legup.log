@@ -1,0 +1,4 @@
+cpu.c: In function 'aluResults alu(int32_t, int32_t, int, int, int32_t)':
+cpu.c:313:6: warning: variable 'temp' set but not used [-Wunused-but-set-variable]
+  int temp;
+      ^

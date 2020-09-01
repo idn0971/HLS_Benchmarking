@@ -1,0 +1,15 @@
+Depth = 8;
+Width = 32;
+Address_radix = dec;
+Data_radix = bin;
+Content
+Begin
+0: 0;	-- switch_table[0] = 0
+1: 1011;	-- switch_table[1] = 11
+2: 101;	-- switch_table[2] = 5
+3: 110;	-- switch_table[3] = 6
+4: 100;	-- switch_table[4] = 4
+5: 1001;	-- switch_table[5] = 9
+6: 11;	-- switch_table[6] = 3
+7: 10;	-- switch_table[7] = 2
+End;

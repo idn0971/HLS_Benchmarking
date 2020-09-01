@@ -1,0 +1,231 @@
+// ----------------------------------------------------------------------------
+// LegUp High-Level Synthesis Tool Version 7.5 (http://legupcomputing.com)
+// Copyright (c) 2015-2019 LegUp Computing Inc. All Rights Reserved.
+// For technical issues, please contact: support@legupcomputing.com
+// For general inquiries, please contact: info@legupcomputing.com
+// Date: Fri Jun 26 12:00:36 2020
+// ----------------------------------------------------------------------------
+
+LegUp Summary Report for Project: CPU_Benchmarking.
+
+Table of Contents
+  1. Scheduling Result
+  2. Pipeline Result
+  3. Memory Usage
+  4. Resource Binding with Adaptive Latency
+
+
+====== 1. Scheduling Result ======
+
+Please use LegUp's schedule viewer to examine the schedule.
+
+Basic Block Latencies:
+
++--------------------------------------------------------+
+| Function: main (non-pipelined function)                |
++----------------------------------------+---------------+
+| Basic Block                            | Cycle Latency |
++----------------------------------------+---------------+
+| %sw.bb118.i                            | 1             |
+| %sw.default.i                          | 1             |
+| %LeafBlock20                           | 1             |
+| %LeafBlock18                           | 1             |
+| %LeafBlock16                           | 1             |
+| %sw.default142.i                       | 1             |
+| %NodeBlock43                           | 1             |
+| %if.then126.i                          | 1             |
+| %if.else131.i                          | 1             |
+| %NodeBlock24                           | 1             |
+| %NodeBlock22                           | 1             |
+| %while.body.lr.ph                      | 1             |
+| %while.body.i                          | 2             |
+| %legup_memset_4.exit                   | 11            |
+| %while.body                            | 2             |
+| %NodeBlock11                           | 1             |
+| %NodeBlock9                            | 1             |
+| %LeafBlock7                            | 1             |
+| %LeafBlock5                            | 1             |
+| %LeafBlock3                            | 1             |
+| %NodeBlock                             | 1             |
+| %LeafBlock1                            | 1             |
+| %LeafBlock                             | 1             |
+| %sw.bb.i                               | 1             |
+| %if.then.i                             | 1             |
+| %if.else.i                             | 1             |
+| %sw.bb40.i                             | 1             |
+| %if.then44.i                           | 1             |
+| %if.else62.i                           | 1             |
+| %sw.bb84.i                             | 1             |
+| %if.then88.i                           | 1             |
+| %sw.epilog.thread242.i                 | 1             |
+| %NodeBlock41                           | 1             |
+| %NodeBlock39                           | 1             |
+| %LeafBlock37                           | 1             |
+| %LeafBlock35                           | 1             |
+| %LeafBlock33                           | 1             |
+| %NodeBlock31                           | 1             |
+| %LeafBlock29                           | 1             |
+| %LeafBlock27                           | 1             |
+| %sw.default148.i                       | 1             |
+| %NodeBlock78                           | 1             |
+| %NodeBlock76                           | 1             |
+| %NodeBlock74                           | 1             |
+| %NodeBlock72                           | 1             |
+| %LeafBlock70                           | 1             |
+| %LeafBlock68                           | 1             |
+| %LeafBlock66                           | 1             |
+| %NodeBlock64                           | 1             |
+| %LeafBlock62                           | 1             |
+| %LeafBlock60                           | 1             |
+| %NodeBlock58                           | 1             |
+| %NodeBlock56                           | 1             |
+| %LeafBlock54                           | 1             |
+| %LeafBlock52                           | 1             |
+| %NodeBlock50                           | 1             |
+| %LeafBlock48                           | 1             |
+| %LeafBlock46                           | 1             |
+| %NodeBlock89                           | 1             |
+| %NodeBlock87                           | 1             |
+| %LeafBlock85                           | 1             |
+| %LeafBlock83                           | 1             |
+| %LeafBlock81                           | 1             |
+| %NodeBlock96                           | 1             |
+| %LeafBlock94                           | 1             |
+| %LeafBlock92                           | 1             |
+| %sw.default13.i                        | 1             |
+| %sw.default16.i                        | 1             |
+| %NodeBlock115                          | 1             |
+| %NodeBlock113                          | 1             |
+| %NodeBlock111                          | 1             |
+| %LeafBlock109                          | 1             |
+| %LeafBlock109.sw.default31.i_crit_edge | 1             |
+| %NodeBlock107                          | 1             |
+| %NodeBlock105                          | 1             |
+| %NodeBlock103                          | 1             |
+| %NodeBlock101                          | 1             |
+| %LeafBlock99                           | 1             |
+| %LeafBlock99.sw.default31.i_crit_edge  | 1             |
+| %NodeBlock122                          | 1             |
+| %LeafBlock120                          | 1             |
+| %LeafBlock118                          | 1             |
+| %sw.default29.i                        | 1             |
+| %sw.default31.i                        | 1             |
+| %sw.default48.i                        | 1             |
+| %switch.lookup.i                       | 2             |
+| %switch.lookup54.i                     | 2             |
+| %aluDecode.exit                        | 2             |
+| %if.else                               | 2             |
+| %NodeBlock175                          | 1             |
+| %NodeBlock173                          | 1             |
+| %NodeBlock171                          | 1             |
+| %NodeBlock169                          | 1             |
+| %NodeBlock167                          | 1             |
+| %LeafBlock165                          | 1             |
+| %NodeBlock163                          | 1             |
+| %NodeBlock161                          | 1             |
+| %LeafBlock159                          | 1             |
+| %NodeBlock157                          | 1             |
+| %NodeBlock155                          | 1             |
+| %NodeBlock153                          | 1             |
+| %NodeBlock151                          | 1             |
+| %NodeBlock149                          | 1             |
+| %NodeBlock147                          | 1             |
+| %NodeBlock145                          | 1             |
+| %NodeBlock143                          | 1             |
+| %NodeBlock141                          | 1             |
+| %NodeBlock139                          | 1             |
+| %NodeBlock137                          | 1             |
+| %NodeBlock135                          | 1             |
+| %NodeBlock133                          | 1             |
+| %NodeBlock131                          | 1             |
+| %NodeBlock129                          | 1             |
+| %NodeBlock127                          | 1             |
+| %LeafBlock125                          | 1             |
+| %sw.bb1.i                              | 1             |
+| %sw.bb5.i                              | 1             |
+| %sw.bb9.i                              | 1             |
+| %sw.bb13.i                             | 1             |
+| %sw.bb17.i                             | 1             |
+| %sw.bb22.i                             | 1             |
+| %sw.bb31.i                             | 1             |
+| %sw.bb37.i                             | 1             |
+| %sw.bb42.i                             | 1             |
+| %sw.bb49.i                             | 1             |
+| %sw.bb54.i                             | 1             |
+| %sw.bb60.i                             | 1             |
+| %sw.bb65.i                             | 2             |
+| %sw.bb73.i                             | 1             |
+| %sw.bb83.i                             | 1             |
+| %sw.bb88.i                             | 1             |
+| %sw.bb97.i                             | 1             |
+| %sw.bb106.i                            | 1             |
+| %sw.bb115.i                            | 1             |
+| %sw.bb124.i                            | 1             |
+| %sw.bb133.i                            | 1             |
+| %alu.exit                              | 1             |
+| %if.then38                             | 3             |
+| %if.end42                              | 1             |
+| %if.then47                             | 3             |
+| %if.else51                             | 1             |
+| %if.then56                             | 2             |
+| %if.end61                              | 1             |
+| %if.then.i1                            | 1             |
+| %if.then8.i                            | 1             |
+| %if.else.i2                            | 1             |
+| %if.then13.i                           | 1             |
+| %if.else15.i                           | 1             |
+| %if.else18.i                           | 1             |
+| %addressCalculator.exit                | 1             |
+| %if.end61.while.body_crit_edge         | 2             |
+| %while.end                             | 2             |
++----------------------------------------+---------------+
+
+====== 2. Pipeline Result ======
+
+No pipeline is generated.
+
+====== 3. Memory Usage ======
+
++----------------------------------------------------------------------------------------------------+
+| Local Memories                                                                                     |
++----------------------------------+-----------------------+------+-------------+------------+-------+
+| Name                             | Accessing Function(s) | Type | Size [Bits] | Data Width | Depth |
++----------------------------------+-----------------------+------+-------------+------------+-------+
+| switch_table                     | main                  | ROM  | 256         | 32         | 8     |
+| switch_table1                    | main                  | ROM  | 256         | 32         | 8     |
+| main_while_body_lr_ph_registers  | main                  | RAM  | 1024        | 32         | 32    |
+| main_while_body_lr_ph_instMemory | main                  | RAM  | 32768       | 32         | 1024  |
+| main_while_body_lr_ph_memory     | main                  | RAM  | 262144      | 32         | 8192  |
++----------------------------------+-----------------------+------+-------------+------------+-------+
+
++-------------------------+
+| Local Constant Memories |
++-------------------------+
+| None                    |
++-------------------------+
+
++-----------------------+
+| Shared Local Memories |
++-----------------------+
+| None                  |
++-----------------------+
+
++------------------+
+| Aliased Memories |
++------------------+
+| None             |
++------------------+
+
++--------------+
+| I/O Memories |
++--------------+
+| None         |
++--------------+
+
+
+====== 4. Resource Binding with Adaptive Latency ======
+
+Binding to resource with adaptive latency is disabled.
+You can enable this feature by setting config parameter 'ADAPTIVE_LATENCY_BINDING' to 1.
+
+

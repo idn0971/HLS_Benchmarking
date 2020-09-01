@@ -1,0 +1,22 @@
+# vsim "+nowarn8607" -suppress 8607 -suppress 2249 -suppress 2685 -suppress 2718 -suppress 3017 -suppress 3722 -c -do "set StdArithNoWarnings 1; run 1000000000000000ns; exit;" work.main_tb -L altera_ver -L lpm_ver -L sgate_ver -L altera_lnsim_ver -L altera_mf_ver -L altera_mf -L altera_lnsim -L altfp -L legup_fp -L twentynm -L generic -L cycloneiv 
+# Start time: 11:07:32 on Aug 04,2020
+# Loading work.main_tb
+# Loading work.top
+# Loading work.main
+# Loading work.rom_dual_port
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# Loading work.ram_single_port_intel
+# Loading altera_mf_ver.altsyncram
+# Loading work.ram_dual_port
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# set StdArithNoWarnings 1
+# 1
+#  run 1000000000000000ns
+#          24
+# At t=            49370000 clk=1 finish=1 return_val=         0
+# Cycles:                 2466
+# ** Note: $finish    : ../CPU_Benchmarking.v(4473)
+#    Time: 49370 ns  Iteration: 1  Instance: /main_tb
+# End time: 11:07:33 on Aug 04,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
