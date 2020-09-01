@@ -1,0 +1,8 @@
+Reading of vector values from input file completed. Simulation started.
+ return_port =          0   expected =          0 
+
+Simulation ended after                  168 cycles.
+
+Simulation completed with success
+
+- HLS_output//simulation/testbench_main_tb.v:353: Verilog $finish
